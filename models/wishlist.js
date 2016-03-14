@@ -11,10 +11,12 @@ restaurantSchema = new mongoose.Schema({
   picture_url:      { type: String, required: true },
   diet_restriction: { type: String, required: true },
   rating:           { type: Number, required: true },
-  rating_img_url:   { type: String, required: true }
+  rating_img_url:   { type: String, required: true },
+  search:           {
+                      type: mongoose.Schema.Types.ObjectId,
+                      ref: "Search"
+                    }
 });
-
-
 
 var wishlistSchema = new mongoose.Schema({
   restaurants:  [restaurantSchema],

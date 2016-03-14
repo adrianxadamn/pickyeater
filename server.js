@@ -3,14 +3,19 @@ var path         = require('path');
 var favicon      = require('serve-favicon');
 var logger       = require('morgan');
 var bodyParser   = require('body-parser');
+var session      = require('express-session'); //CJS ADD
+var passport     = require('passport'); //CJS ADD
 var debug        = require('debug')('app:http');
 var cookieParser = require('cookie-parser');
-var util = require('util')
+var util         = require('util');
+var env          = require('dotenv');
 
 // Load local libraries.
 var env      = require('./config/environment'),
     mongoose = require('./config/database'),
     routes   = require('./config/routes');
+
+require('./config/passport');
 
 // Instantiate a server application.
 var app = express();
@@ -21,6 +26,7 @@ app.set('safe-title', env.SAFE_TITLE);
 // EJS view engine config
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+// require('ejs').delimiter = '$';
 
 // Create local variables for use thoughout the application.
 app.locals.title = app.get('title');
@@ -30,9 +36,18 @@ app.use(logger('dev'));
 
 // Helper layer (parses the requests, and adds further data).
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser('notsosecretnowareyou'));
+//CJS ADD
+app.use(session({
+  secret: 'pickyeater ROCKS!',
+  resave: false,
+  saveUninitialized: true
+}));
+//CJS ADD
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routing layers: favicon, static assets, dynamic routes, or 404…
 
