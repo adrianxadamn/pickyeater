@@ -6,11 +6,12 @@ var usersController = require('../controllers/users');
 var searchController = require('../controllers/search')
 
 // root path:
+
 router.get('/', function(req, res, next) {
-  res.render('index')
+  res.render('home')
 })
 
-router.post('/search', searchController.search);
+// router.post('/search', searchController.search);
 
 // users resource paths:
 router.get('/users',     usersController.index);

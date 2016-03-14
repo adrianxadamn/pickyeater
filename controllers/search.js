@@ -41,7 +41,7 @@ var yelp = new Yelp({
 });
 
 // See http://www.yelp.com/developers/documentation/v2/search_api
-yelp.search({ term: 'In-n-Out', location: 'Glendale CA' })
+yelp.search({ term: 'food', location: 'Glendale CA', category_filter: 'sushi' })
 .then(function (data) {
   console.log("YO WHATS UP")
   console.log(util.inspect(data, false, null))
@@ -50,7 +50,6 @@ yelp.search({ term: 'In-n-Out', location: 'Glendale CA' })
   console.error(err);
 });
 
-
 module.exports = {
-  search: search
+  // search: search
 };
