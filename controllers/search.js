@@ -31,26 +31,26 @@ var util = require('util');
 //   });
 // }
 
-var Yelp = require('yelp');
+// var Yelp = require('yelp');
 
-var yelp = new Yelp({
-  consumer_key: 'RLViWFOkVwhbKrfuRQdZxA',
-  consumer_secret: 'cdBzRkgNhjk33vGN2OyCwF5LHn4',
-  token: 'SYXwKPihYkjj8qC1fikmhwTOOVYghizK',
-  token_secret: '65-wVZ3xS-02U2WdPrEODsUgxy0',
-});
+// var yelp = new Yelp({
+//   consumer_key: 'RLViWFOkVwhbKrfuRQdZxA',
+//   consumer_secret: 'cdBzRkgNhjk33vGN2OyCwF5LHn4',
+//   token: 'SYXwKPihYkjj8qC1fikmhwTOOVYghizK',
+//   token_secret: '65-wVZ3xS-02U2WdPrEODsUgxy0',
+// });
 
-// See http://www.yelp.com/developers/documentation/v2/search_api
-yelp.search({ term: 'In-n-Out', location: 'Glendale CA' })
-.then(function (data) {
-  console.log("YO WHATS UP")
-  console.log(util.inspect(data, false, null))
-})
-.catch(function (err) {
-  console.error(err);
-});
+// // See http://www.yelp.com/developers/documentation/v2/search_api
+// yelp.search({ term: 'In-n-Out', location: 'Glendale CA' })
+// .then(function (data) {
+//   console.log("YO WHATS UP")
+//   console.log(util.inspect(data, false, null))
+// })
+// .catch(function (err) {
+//   console.error(err);
+// });
 
 
-module.exports = {
-  search: search
-};
+// module.exports = {
+//   search: search
+// };
