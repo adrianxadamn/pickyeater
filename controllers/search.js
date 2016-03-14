@@ -17,7 +17,7 @@ function search(req, res, next) {
   console.log(req.body);
   var location = req.body.search.place;
   var limit = parseInt(req.body.search.limit);
-  var category = req.body.search.category;
+  var category = req.body.search.category.toLowerCase();
 
   // See http://www.yelp.com/developers/documentation/v2/search_api
   yelp.search({ term: "food", location: location, limit: limit, category_filter: category }, function(error, data) {

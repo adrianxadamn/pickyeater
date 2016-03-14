@@ -9,13 +9,13 @@ User.remove({}, function(err, users) {
       [
         { // 0
           name:   "Bob Neverdunk",
-          googledId: "abc123",
+          googleId: "abc123",
           googleImage: "myprofilepic.img",
           email: "bob@email.com"
         },
         { // 1
           name:   "Margaret Kalanchoe",
-          googledId: "xyz123",
+          googleId: "xyz123",
           googleImage: "myprofilepic.png",
           email: "marg@email.com"
         }
