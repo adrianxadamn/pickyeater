@@ -7,16 +7,18 @@ var usersController = require('../controllers/users');
 var searchController = require('../controllers/search')
 
 // root path:
-
 router.get('/', function(req, res, next) {
   res.render('index', {user: req.user});
 })
 
+// search resource paths:
+router.post('/search', searchController.search);
+
+//google Auth
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
 ));
-
 
 router.get('/oauth2callback', passport.authenticate(
   'google',
@@ -30,8 +32,6 @@ router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
-
-// router.post('/search', searchController.search);
 
 // users resource paths:
 router.get('/users',     usersController.index);
