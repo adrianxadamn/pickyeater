@@ -2,11 +2,15 @@ var express = require('express'),
     router  = new express.Router();
 
 // Require controllers.
-var pagesController = require('../controllers/pages');
 var usersController = require('../controllers/users');
+var searchController = require('../controllers/search')
 
 // root path:
-router.get('/', pagesController.welcome);
+router.get('/', function(req, res, next) {
+  res.render('index')
+})
+
+router.post('/search', searchController.search);
 
 // users resource paths:
 router.get('/users',     usersController.index);

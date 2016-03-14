@@ -1,5 +1,7 @@
 var _ = require('lodash');
 
+require("dotenv").load();
+
 var localEnvVars = {
   TITLE:      'pickyeater',
   SAFE_TITLE: 'pickyeater'
