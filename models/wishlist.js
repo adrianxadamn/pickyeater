@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     debug    = require('debug')('app:models'),
 
 
-var restaurantSchema = new mongoose.Schema({
+restaurantSchema = new mongoose.Schema({
   name:             { type: String, required: true },
   address:          { type: String, required: true },
   url:              { type: String, required: true },
@@ -22,9 +22,9 @@ var wishlistSchema = new mongoose.Schema({
                   type: mongoose.Schema.Types.ObjectId,
                   ref: "User"
                 },
-  title:        { String, required: true }
+  title:        { type: String, required: true }
 });
 
 var Wishlist = mongoose.model('Wishlist', wishlistSchema);
 
-module.exports = User;
+module.exports = Wishlist;
