@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <link rel="stylesheet" href="">
+  <%- include('partials/head') %>
 </head>
 <body>
+  <%- include('partials/header', {subHeading: 'Welcome'}) %>
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="">My Lists</a></li>
     <li><a href="">Restaurants</a></li>
     <li><a href="">Randomize</a></li>
     <li><a href="/users">Users</a></li>
-    <li><a href="">Log In</a></li>
     <li><a href="">Sign Up</a></li>
-    <li><a href="">Log Out</a></li>
+    <% if (user) { %>
+    <li><a href="/logout"></i>Hi <%= user.name %> Logout</a></li>
+    <% } else { %>
+    <li><a href="/auth/google"></i>Login with Google</a></li>
+    <% } %>
+  <main>
+  <!-- action = url redirect after submitting form -->
+    <form method="POST" action="/search">
+      <label for="search">Location</label>
+      <input id="search" type="text" name="search[place]" placeholder="Cleveland, OH"/>
+      <br>
+      <label for="search">Number of Results</label>
+      <input id="limit" type="text" name="search[limit]" placeholder="Number of Results Ex: 1"/>
+      <br>
+      <label for="search">Search Category</label>
+      <input id="category" type="text" name="search[category]" placeholder="Category. Ex: Burgers"/>
+      <br>
+      <input type="submit" value="Search" />
+    </form>
+    <ul>
+      <li><a href="/users">Visit the user list.</a></li>
+    </ul>
+  </main>
+
+  <%- include('partials/scripts') %>
   </ul>
 </body>
 </html>

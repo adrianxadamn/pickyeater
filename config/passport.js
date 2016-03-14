@@ -15,6 +15,7 @@ passport.use(new GoogleStrategy({
       if (err) return cb(err);
       if (user) {
           console.log("welcome back!!!")
+          console.log(user)
         return cb(null, user);
       } else {
 
@@ -22,7 +23,8 @@ passport.use(new GoogleStrategy({
         var newUser = new User({
           name: profile.displayName,
           email: profile.emails[0].value,
-          googleId: profile.id
+          googleId: profile.id,
+          googleImage: profile.profileUrl
         });
 
         console.log(newUser);

@@ -8,9 +8,9 @@ var searchController = require('../controllers/search')
 
 // root path:
 router.get('/', function(req, res, next) {
-  res.render('index', {user: req.user});
+  // res.render('index', {user: req.user});
   //check this later jerry
-  // res.render('home')
+  res.render('home', {user: req.user})
 })
 
 // search resource paths:
