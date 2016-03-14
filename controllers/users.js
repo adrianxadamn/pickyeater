@@ -6,7 +6,8 @@ var index = function(req, res, next){
     if (err) {
       res.json({message: err});
     } else {
-      res.render('users/index', {users: users});
+      res.render('users/index', {user: req.user, users: users});
+      // console.log(users)
     }
   });
 };
