@@ -10,6 +10,8 @@ var searchController = require('../controllers/search')
 
 router.get('/', function(req, res, next) {
   res.render('index', {user: req.user});
+  //check this later jerry
+  // res.render('home')
 })
 
 router.get('/auth/google', passport.authenticate(
@@ -31,7 +33,7 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
-// router.post('/search', searchController.search);
+router.post('/search', searchController.search);
 
 // users resource paths:
 router.get('/users',     usersController.index);
