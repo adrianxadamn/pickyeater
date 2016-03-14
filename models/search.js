@@ -1,6 +1,4 @@
-var mongoose = require('mongoose'),
-    debug    = require('debug')('app:models'),
-
+var mongoose = require("mongoose");
 
 var restaurantSchema = new mongoose.Schema({
   name:             { type: String, required: true },
@@ -14,17 +12,12 @@ var restaurantSchema = new mongoose.Schema({
   rating_img_url:   { type: String, required: true }
 });
 
-
-
-var wishlistSchema = new mongoose.Schema({
-  restaurants:  [restaurantSchema],
-  creator:      {
-                  type: mongoose.Schema.Types.ObjectId,
-                  ref: "User"
-                },
-  title:        { String, required: true }
+var searchSchema = mongoose.Schema({
+  place:  { type: String, required: true },
+  term:   String,
+  restaurant: [restaurantSchema]
 });
 
-var Wishlist = mongoose.model('Wishlist', wishlistSchema);
+var Search = mongoose.model("Search", searchSchema);
 
-module.exports = Wishlist;
+module.exports = Search;

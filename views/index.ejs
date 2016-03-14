@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header', {subHeading: 'Welcome'}) %>
+
+  <main>
+    <form method="POST" action="/search">
+      <label for="search">Place Name</label>
+      <input id="search" type="text" name="search[place]" placeholder="Cleveland, OH"/>
+      <input type="submit" value="Search" />
+    </form>
+    <ul>
+      <li><a href="/users">Visit the user list.</a></li>
+    </ul>
+  </main>
+
+  <%- include('partials/scripts') %>
+</body>
+</html>
