@@ -58,3 +58,4 @@ function search(req, res, next) {
 module.exports = {
   search: search
 };
+
