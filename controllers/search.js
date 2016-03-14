@@ -40,16 +40,20 @@ var yelp = new Yelp({
   token_secret: '65-wVZ3xS-02U2WdPrEODsUgxy0',
 });
 
-// See http://www.yelp.com/developers/documentation/v2/search_api
-yelp.search({ term: 'In-n-Out', location: 'Glendale CA' })
-.then(function (data) {
-  console.log("YO WHATS UP")
-  console.log(util.inspect(data, false, null))
-})
-.catch(function (err) {
-  console.error(err);
-});
+function search(req, res, next) {
+  console.log("hi from search function");
+  console.log(req.body);
+  var location = req.body.search.place;
+  var limit = parseInt(req.body.search.limit);
+  var category = req.body.search.category;
 
+  // See http://www.yelp.com/developers/documentation/v2/search_api
+  yelp.search({ term: "food", location: location, limit: limit, category_filter: category }, function(error, data) {
+    if (error) res.json({message: error});
+    console.log(util.inspect(data, false, null));
+    res.json(data);
+  });
+};
 
 module.exports = {
   search: search
