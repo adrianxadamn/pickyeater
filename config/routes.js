@@ -23,7 +23,9 @@ router.get('/wishlists', function(req, res, next) {
   res.render('wishlists', {user: req.user});
 })
 
+router.get('/wishlists/:id', wishlistController.show);
 router.post('/api/wishlists', wishlistController.post);
+router.delete('/wishlists/:id', wishlistController.destroy);
 
 
 // search resource paths

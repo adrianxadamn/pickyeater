@@ -16,6 +16,14 @@ function index(req, res, next) {
   );
 };
 
+function show(req, res, next) {
+  var id = req.params.id;
+  Wishlist.findById(id, function(err, wishlist){
+    if (err) console.log(err);
+      else res.json(wishlist);
+  });
+};
+
 function post(req, res, next) {
   var wishlist = new Wishlist();
 
@@ -29,7 +37,20 @@ function post(req, res, next) {
   });
 };
 
+function destroy(req, res, next) {
+  Wishlist
+  .findByIdAndRemove(req.params.id)
+  .then(function(results) {
+    res.json(results);
+  })
+  .catch(function(err) {
+    console.log(err);
+  })
+};
+
 module.exports = {
   index: index,
-  post: post
+  post: post,
+  show: show,
+  destroy: destroy
 }
