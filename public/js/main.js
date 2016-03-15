@@ -3,6 +3,8 @@ console.log('JS loaded!');
 $( document ).ready(function() {
   var $wishlists = $('#wishlist-list');
   var $title = $('#title');
+  var $modalWishlists = $('#modal-lists');
+  var $addWishlist = $('#addWishlist');
 
   $.ajax({
     method: 'GET',
@@ -10,9 +12,11 @@ $( document ).ready(function() {
     success: function(wishlists) {
       var wishlistTemplate1 = "<li><p>title: {{title}}</p>" + "<button data-id='{{_id}}' class='remove'>X</button></li>"
       var wishlistTemplate2 = "<li>restaurant: {{name}}</li>"
+      var modalWishlistTemplate = "<p><input name='{{title}}' type='radio' id='{{_id}}'/><label for='{{_id}}'>{{title}}</label></p>"
 
       $.each(wishlists, function(i, wishlist) {
         $wishlists.append(Mustache.render(wishlistTemplate1, wishlist));
+        $modalWishlists.append(Mustache.render(modalWishlistTemplate, wishlist));
         for(var j = 0; j < wishlist.restaurants.length; j++){
           console.log(wishlist);
           console.log(wishlist._id);
@@ -57,6 +61,15 @@ $wishlists.delegate('.remove', 'click', function (){
 });
  });
 
+// modal
+$('.modal-trigger').leanModal();
+
+//this doesn't work!
+$addWishlist.on('click', function() {
+  var $card = $('#card');
+  var $cardText = $('#card').text()
+  $wishlists.push($cardText)
+  })
 });
 
 
