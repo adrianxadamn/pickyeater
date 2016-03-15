@@ -13,9 +13,10 @@ var yelp = new Yelp({
 });
 
 
+
 function search(req, res, next) {
-  console.log("hi from search function");
-  console.log(req.body);
+  // console.log("hi from search function");
+  // console.log(req.body);
   var location = req.body.search.place;
   var limit = parseInt(req.body.search.limit);
   var category = req.body.search.category.toLowerCase();
@@ -23,10 +24,31 @@ function search(req, res, next) {
   // See http://www.yelp.com/developers/documentation/v2/search_api
   yelp.search({ term: "food", location: location, limit: limit, category_filter: category }, function(error, data) {
     if (error) res.json({message: error});
-    console.log(util.inspect(data, false, null));
-    res.json(data);
+    // console.log(util.inspect(data, false, null));
+    var businesses = data.businesses;
+    var results = [];
+    console.log(businesses);
+    businesses.forEach(function(el) {
+      var temp = {};
+      temp.yelp_id          =  el.id
+      temp.name             =  el.name
+      temp.address          =  el.location.display_address
+      temp.url              =  el.url
+      temp.picture_url      =  el.image_url
+      temp.rating           =  el.rating
+      temp.rating_img_url   =  el.rating_img_url
+      temp.cuisine          =  [];
+      el.categories.forEach(function(e) {
+        temp.cuisine.push(e[0]);
+      })
+      results.push(temp);
+    })
+    res.render("search_results", {results: results});
+
   });
 };
+
+
 
 module.exports = {
   search: search
