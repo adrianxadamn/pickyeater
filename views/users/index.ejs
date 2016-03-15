@@ -5,15 +5,15 @@
 </head>
 <body>
   <%- include('../partials/header', {subHeading: 'User List'}) %>
-
-  <main>
-    <ul>
+            <% if (user) { %>
+            <li><a href="/logout"></i>Hi <%= user.name %> Logout</a></li>
+            <% } else { %>
+            <li><a href="/auth/google"></i>Login with Google</a></li>
+            <% } %>
+    <br>
       <% users.forEach(function(user) { %>
         <li><a href="/users/<%= user._id %>"><%= user.name %></a></li>
       <% }) %>
-    </ul>
-    <p><a href="/">Back to home.</a></p>
-  </main>
 
   <%- include('../partials/scripts') %>
 </body>

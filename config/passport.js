@@ -9,12 +9,15 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.clientSecret,
     callbackURL: process.env.baseSite
   },
+//please work for D. Jim said I could do this on Master. He swore in blood.
+
   function(accessToken, refreshToken, profile, cb) {
 
     User.findOne({ 'googleId': profile.id }, function(err, user) {
       if (err) return cb(err);
       if (user) {
           console.log("welcome back!!!")
+          console.log(user)
         return cb(null, user);
       } else {
 
@@ -22,7 +25,8 @@ passport.use(new GoogleStrategy({
         var newUser = new User({
           name: profile.displayName,
           email: profile.emails[0].value,
-          googleId: profile.id
+          googleId: profile.id,
+          googleImage: profile.profileUrl
         });
 
         console.log(newUser);

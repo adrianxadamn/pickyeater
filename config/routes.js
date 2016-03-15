@@ -9,7 +9,9 @@ var wishlistController = require('../controllers/wishlists');
 
 // root path:
 router.get('/', function(req, res, next) {
-  res.render('home');
+  // res.render('index', {user: req.user});
+  //check this later jerry
+  res.render('home', {user: req.user})
 })
 
 // router.get('/index', function(req, res, next) {
