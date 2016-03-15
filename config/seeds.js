@@ -31,6 +31,9 @@ User.remove({}, function(err, users) {
           ],
          function(err, wishlists) {
             wishlists[0].restaurants.push({name: "Claws", address:"df", url: "dfs", pricing: 2, cuisine: "Seafood", picture_url: "dfa", diet_restriction: "df", rating: 2, rating_img_url: "dfd"});
+            wishlists[1].restaurants.push({name: "Four Seasons", address:"df", url: "dfs", pricing: 2, cuisine: "Seafood", picture_url: "abc", diet_restriction: "df", rating: 5, rating_img_url: "dfd"}),
+            wishlists[1].restaurants.push({name: "McDs", address:"df", url: "dfs", pricing: 2, cuisine: "Seafood", picture_url: "abc", diet_restriction: "df", rating: 5, rating_img_url: "dfd"}),
+            wishlists[2].restaurants.push({name: "Olive Garden", address:"df", url: "dfs", pricing: 2, cuisine: "Seafood", picture_url: "ejd.", diet_restriction: "df", rating: 5, rating_img_url: "dfd"});
             console.log(wishlists[0]);
             wishlists.forEach(function(e){
               e.save(function(err) {
