@@ -6,7 +6,7 @@ var User = require('../models/user')
 
 function index(req, res, next) {
   User.findById({_id: req.session.passport.user}, function(err, user) {
-    var id = user.id
+    var id = user.id;
     Wishlist.find({ creator: id}, function(err, wishlists) {
       res.json(wishlists);
     })
@@ -27,7 +27,7 @@ function post(req, res, next) {
     console.log(user)
     console.log(user.name)
     console.log(user.id)
-    var user = user.name;
+    var user = user.id;
     var wishlist = new Wishlist();
     wishlist.title = req.body.title;
     wishlist.creator = user;
