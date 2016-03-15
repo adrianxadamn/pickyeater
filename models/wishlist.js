@@ -6,7 +6,7 @@ restaurantSchema = new mongoose.Schema({
   name:             { type: String, required: true },
   address:          { type: String, required: true },
   url:              { type: String, required: true },
-  pricing:          { type: Number, required: true },
+  // pricing:          { type: Number, required: true },
   cuisine:          { type: String, required: true },
   picture_url:      { type: String, required: true },
   diet_restriction: { type: String, required: true },

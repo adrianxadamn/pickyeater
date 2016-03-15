@@ -13,6 +13,7 @@ var yelp = new Yelp({
 });
 
 
+
 function search(req, res, next) {
   console.log("hi from search function");
   console.log(req.body);
@@ -24,9 +25,28 @@ function search(req, res, next) {
   yelp.search({ term: "food", location: location, limit: limit, category_filter: category }, function(error, data) {
     if (error) res.json({message: error});
     console.log(util.inspect(data, false, null));
-    res.json(data);
+    var businesses = data.businesses;
+    var temp = {};
+    var results = [];
+    businesses.forEach(function(el) {
+      temp.name             =  el.name
+      temp.address          =  el.location.display_address
+      temp.url              =  el.url
+      temp.picture_url      =  el.image_url
+      temp.rating           =  el.rating
+      temp.rating_img_url   =  el.rating_img_url
+      temp.cuisine          =  [];
+      el.categories.forEach(function(e) {
+        temp.cuisine.push(e[0]);
+      })
+      results.push(temp);
+    })
+    res.json(results);
+
   });
 };
+
+
 
 module.exports = {
   search: search
