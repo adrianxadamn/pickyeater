@@ -27,7 +27,9 @@ router.get('/wishlists', function(req, res, next) {
 ///////////////wishlists api path:////////////////
 //////////////////////////////////////////////////
 router.get('/api/wishlists', wishlistController.index);
+router.get('/wishlists/:id', wishlistController.show);
 router.post('/api/wishlists', wishlistController.post);
+router.delete('/wishlists/:id', wishlistController.destroy);
 
 
 //////////////////////////////////////////////////
