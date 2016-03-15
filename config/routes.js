@@ -4,14 +4,29 @@ var express = require('express'),
 
 // Require controllers.
 var usersController = require('../controllers/users');
-var searchController = require('../controllers/search')
+var searchController = require('../controllers/search');
+var wishlistController = require('../controllers/wishlists');
 
 // root path:
 router.get('/', function(req, res, next) {
-  res.render('index', {user: req.user});
-  //check this later jerry
-  // res.render('home')
+  res.render('home');
 })
+
+// router.get('/index', function(req, res, next) {
+//   res.render('index', {user: req.user});
+// })
+
+// wishlists path:
+router.get('/api/wishlists', wishlistController.index);
+
+router.get('/wishlists', function(req, res, next) {
+  res.render('wishlists');
+})
+
+router.post('/wishlists', function(req, res, next) {
+  res.render('wishlists');
+})
+
 
 // search resource paths:
 router.post('/search', searchController.search);
