@@ -6,11 +6,12 @@ var util = require('util');
 var Yelp = require('yelp');
 
 var yelp = new Yelp({
-  consumer_key: 'RLViWFOkVwhbKrfuRQdZxA',
-  consumer_secret: 'cdBzRkgNhjk33vGN2OyCwF5LHn4',
-  token: 'SYXwKPihYkjj8qC1fikmhwTOOVYghizK',
-  token_secret: '65-wVZ3xS-02U2WdPrEODsUgxy0',
+  consumer_key: process.env.consumer_key,
+  consumer_secret: process.env.consumer_secret,
+  token: process.env.token,
+  token_secret: process.env.token_secret
 });
+
 
 function search(req, res, next) {
   console.log("hi from search function");

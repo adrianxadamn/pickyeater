@@ -4,16 +4,30 @@ var express = require('express'),
 
 // Require controllers.
 var usersController = require('../controllers/users');
-var searchController = require('../controllers/search')
+var searchController = require('../controllers/search');
+var wishlistController = require('../controllers/wishlists');
 
 // root path:
 router.get('/', function(req, res, next) {
-  res.render('index', {user: req.user});
-  //check this later jerry
-  // res.render('home')
+  res.render('home', {user: req.user})
 })
 
-// search resource paths:
+router.get('/restaurants', function(req, res, next) {
+  res.render('restaurants', {user: req.user});
+})
+
+// wishlists path:
+router.get('/api/wishlists', wishlistController.index);
+
+router.get('/wishlists', function(req, res, next) {
+  res.render('wishlists', {user: req.user});
+})
+
+router.post('/api/wishlists', wishlistController.post);
+
+
+// search resource paths
+
 router.post('/search', searchController.search);
 
 //google Auth

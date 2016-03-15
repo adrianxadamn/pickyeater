@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <link rel="stylesheet" href="">
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
 </head>
 <body>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="">My Lists</a></li>
-    <li><a href="">Restaurants</a></li>
-    <li><a href="">Randomize</a></li>
-    <li><a href="/users">Users</a></li>
-    <li><a href="">Log In</a></li>
-    <li><a href="">Sign Up</a></li>
-    <li><a href="">Log Out</a></li>
+
+  <%- include('partials/navbar') %>
+
+
+
+  <%- include('partials/scripts') %>
   </ul>
+
+
 </body>
 </html>
