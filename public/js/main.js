@@ -8,12 +8,15 @@ $( document ).ready(function() {
     method: 'GET',
     url: 'http://localhost:3000/api/wishlists',
     success: function(wishlists) {
+      var wishlistTemplate1 = "<li><p>title: {{title}}</p>" + "<button data-id='{{_id}}' class='remove'>X</button></li>"
+      var wishlistTemplate2 = "<li>restaurant: {{name}}</li>"
+
       $.each(wishlists, function(i, wishlist) {
-        $wishlists.append(`<li class="collection-header"> ${wishlist.title} </li>`)
+        $wishlists.append(Mustache.render(wishlistTemplate1, wishlist));
         for(var j = 0; j < wishlist.restaurants.length; j++){
           console.log(wishlist);
           console.log(wishlist._id);
-           $wishlists.append(`<li class="collection-item"> ${wishlist.restaurants[j].name} </li>` );
+          $wishlists.append(Mustache.render(wishlistTemplate2, wishlist.restaurants[j]))
         }
       });
     },
@@ -21,6 +24,8 @@ $( document ).ready(function() {
       console.log(err);
     }
   });
+
+//event listeners
 
   $('#add-wishlist').on('click', function() {
 
@@ -40,6 +45,18 @@ $( document ).ready(function() {
       }
     })
   })
+
+$wishlists.delegate('.remove', 'click', function (){
+ var $li = $(this).closest('li');
+ $.ajax({
+    method: 'DELETE',
+    url: 'http://localhost:3000/wishlists/' + $(this).attr('data-id'),
+    success: function (){
+      $li.remove();
+    }
+});
+ });
+
 });
 
 
