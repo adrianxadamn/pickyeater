@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+</head>
+<body>
+
+  <div>
+    <ul id="list-of-restaurant">
+    <% results.forEach(function(e) { %>
+    <li id="<%= e.yelp_id %>">
+      <h1><a href="<%= e.url %>"><%= e.name %></a></h1>
+      <image src="<%= e.picture_url %>" />
+      <span><%= e.address %></span>
+      <image src="<%= e.rating_img_url%>" />
+      <span> <%=e.rating %> </span>
+      <span> <%= e.cuisine[0] %></span>
+      <button>Save To My Wishlist</button>
+    </li>
+
+
+    <% }) %>
+    </ul>
+  </div>
+
+  <%- include('partials/scripts') %>
+
+
+</body>
+</html>

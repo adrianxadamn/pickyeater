@@ -1,8 +1,8 @@
-
 var request = require("request");
 var _ = require('lodash');
 var util = require('util');
 var Wishlist = require('../models/wishlist');
+var User = require('../models/user')
 
 function index(req, res, next) {
   Wishlist.find({})
@@ -18,9 +18,8 @@ function index(req, res, next) {
 
 function post(req, res, next) {
   var wishlist = new Wishlist();
-
+  console.log(user)
   wishlist.title = req.body.title;
-
   wishlist.save(function(err, savedWishlist) {
     if (err) {
       console.log(err);

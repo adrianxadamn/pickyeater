@@ -27,7 +27,7 @@ router.post('/api/wishlists', wishlistController.post);
 
 
 // search resource paths
-
+// router.get('/search', searchController.search)
 router.post('/search', searchController.search);
 
 //google Auth
