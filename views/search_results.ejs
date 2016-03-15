@@ -3,30 +3,32 @@
 <head>
   <%- include('partials/head') %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-
-  <div>
-    <ul id="list-of-restaurant">
-    <% results.forEach(function(e) { %>
-    <li id="<%= e.yelp_id %>">
-      <h1><a href="<%= e.url %>"><%= e.name %></a></h1>
-      <image src="<%= e.picture_url %>" />
-      <span><%= e.address %></span>
-      <image src="<%= e.rating_img_url%>" />
-      <span> <%=e.rating %> </span>
-      <span> <%= e.cuisine[0] %></span>
-      <button>Save To My Wishlist</button>
-    </li>
-
-
-    <% }) %>
-    </ul>
-  </div>
-
-  <%- include('partials/scripts') %>
-
-
+<div id="list-container">
+  <% results.forEach(function(e) { %>
+      <div class="card" id="card">
+      <div id="card-image" class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="<%= e.picture_url %>">
+        <!-- <button id="save-button">Save To My Wishlist</button> -->
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><%= e.name %><i class="material-icons right">description</i></span>
+        <p><a href="<%= e.url %>">Learn More on Yelp</a></p>
+      </div>
+      <div class="card-reveal" id="card-reveal">
+        <span class="card-title grey-text text-darken-4"><%= e.name %><i class="material-icons right">close</i></span>
+        <p>Cuisine: <%= e.cuisine[0] %></p>
+        <p><image src="<%= e.rating_img_url%>" /></p>
+        <p><%= e.address %></p>
+        <button id="save-button">Save to Wishlist</button>
+      </div>
+    </div>
+  <% }) %>
+</div>
+<button><a href="/restaurants">Back</a></button>
+<%- include('partials/scripts') %>
 </body>
+
 </html>
