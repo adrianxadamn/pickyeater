@@ -12,11 +12,15 @@ router.get('/', function(req, res, next) {
   res.render('home', {user: req.user})
 })
 
+router.get('/restaurants', function(req, res, next) {
+  res.render('restaurants', {user: req.user});
+})
+
 // wishlists path:
 router.get('/api/wishlists', wishlistController.index);
 
 router.get('/wishlists', function(req, res, next) {
-  res.render('wishlists');
+  res.render('wishlists', {user: req.user});
 })
 
 router.post('/api/wishlists', wishlistController.post);

@@ -5,12 +5,12 @@ $( document ).ready(function() {
   var $title = $('#title');
 
   $.ajax({
-    type: 'GET',
-    url: '/api/wishlists',
+    method: 'GET',
+    url: 'http://localhost:3000/api/wishlists',
     success: function(wishlists) {
       $.each(wishlists, function(i, wishlist) {
         console.log(wishlist);
-        $wishlists.append(`<li> ${wishlist.title} </li> <li> ${wishlist.creator} </li>` );
+        $wishlists.append(`<li class="collection-header"> ${wishlist.title} </li> <li class="collection-item"> ${wishlist.creator} </li>` );
       });
     },
     error: function(err) {
@@ -25,11 +25,11 @@ $( document ).ready(function() {
     };
 
     $.ajax({
-      type: 'POST',
-      url: '/api/wishlists',
+      method: 'POST',
+      url: 'http://localhost:3000/api/wishlists',
       data: wishlist,
       success: function(newWishlist) {
-        $wishlists.append(`<li> ${wishlist.title} </li> <li> ${wishlist.creator} </li>` );
+        $wishlists.append(`<li> ${newWishlist.title} </li> <li> ${newWishlist.creator} </li>` );
       },
       error: function(err) {
         console.log(err);
