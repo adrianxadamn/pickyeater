@@ -9,6 +9,7 @@ var debug        = require('debug')('app:http');
 var cookieParser = require('cookie-parser');
 var util         = require('util');
 var env          = require('dotenv');
+var materialize  = require('materialize');
 
 // Load local libraries.
 var env      = require('./config/environment'),

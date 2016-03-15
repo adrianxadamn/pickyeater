@@ -9,28 +9,25 @@ var wishlistController = require('../controllers/wishlists');
 
 // root path:
 router.get('/', function(req, res, next) {
-  // res.render('index', {user: req.user});
-  //check this later jerry
   res.render('home', {user: req.user})
 })
 
-// router.get('/index', function(req, res, next) {
-//   res.render('index', {user: req.user});
-// })
+router.get('/restaurants', function(req, res, next) {
+  res.render('restaurants', {user: req.user});
+})
 
 // wishlists path:
 router.get('/api/wishlists', wishlistController.index);
 
 router.get('/wishlists', function(req, res, next) {
-  res.render('wishlists');
+  res.render('wishlists', {user: req.user});
 })
 
-router.post('/wishlists', function(req, res, next) {
-  res.render('wishlists');
-})
+router.post('/api/wishlists', wishlistController.post);
 
 
-// search resource paths:
+// search resource paths
+
 router.post('/search', searchController.search);
 
 //google Auth
