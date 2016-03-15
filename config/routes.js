@@ -15,22 +15,30 @@ router.get('/', function(req, res, next) {
 router.get('/restaurants', function(req, res, next) {
   res.render('restaurants', {user: req.user});
 })
-
-// wishlists path:
-router.get('/api/wishlists', wishlistController.index);
+//////////////////////////////////////////////////
+/////////////////wishlists path://////////////////
+//////////////////////////////////////////////////
 
 router.get('/wishlists', function(req, res, next) {
   res.render('wishlists', {user: req.user});
 })
-
+router.get('/wishlists/:id', wishlistController.show);
+router.delete('/wishlists/:id', wishlistController.destroy);
+//////////////////////////////////////////////////
+///////////////wishlists api path:////////////////
+//////////////////////////////////////////////////
+router.get('/api/wishlists', wishlistController.index);
 router.post('/api/wishlists', wishlistController.post);
 
 
-// search resource paths
-// router.get('/search', searchController.search)
-router.post('/search', searchController.search);
 
-//google Auth
+//////////////////////////////////////////////////
+////////////// search resource paths//////////////
+//////////////////////////////////////////////////
+router.post('/search', searchController.search);
+//////////////////////////////////////////////////
+////////////////////google Auth///////////////////
+//////////////////////////////////////////////////
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
@@ -48,8 +56,9 @@ router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
-
-// users resource paths:
+//////////////////////////////////////////////////
+////////////////users resource paths://///////////
+//////////////////////////////////////////////////
 router.get('/users',     usersController.index);
 router.get('/users/:id', usersController.show);
 

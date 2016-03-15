@@ -6,17 +6,11 @@ restaurantSchema = new mongoose.Schema({
   name:             { type: String, required: true },
   address:          { type: String, required: true },
   url:              { type: String, required: true },
-  yelp_id:          { type: String, required: true },
-  // pricing:          { type: Number, required: true },
+  yelp_id:          { type: String },
   cuisine:          { type: String, required: true },
   picture_url:      { type: String, required: true },
-  diet_restriction: { type: String, required: true },
   rating:           { type: Number, required: true },
-  rating_img_url:   { type: String, required: true },
-  search:           {
-                      type: mongoose.Schema.Types.ObjectId,
-                      ref: "Search"
-                    }
+  rating_img_url:   { type: String, required: true }
 });
 
 var wishlistSchema = new mongoose.Schema({
