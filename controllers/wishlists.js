@@ -26,7 +26,6 @@ function show(req, res, next) {
 
 function post(req, res, next) {
   var wishlist = new Wishlist();
-  console.log(user)
   wishlist.title = req.body.title;
   wishlist.save(function(err, savedWishlist) {
     if (err) {

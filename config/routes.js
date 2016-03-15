@@ -22,14 +22,14 @@ router.get('/restaurants', function(req, res, next) {
 router.get('/wishlists', function(req, res, next) {
   res.render('wishlists', {user: req.user});
 })
-
+router.get('/wishlists/:id', wishlistController.show);
+router.delete('/wishlists/:id', wishlistController.destroy);
 //////////////////////////////////////////////////
 ///////////////wishlists api path:////////////////
 //////////////////////////////////////////////////
 router.get('/api/wishlists', wishlistController.index);
-router.get('/wishlists/:id', wishlistController.show);
 router.post('/api/wishlists', wishlistController.post);
-router.delete('/wishlists/:id', wishlistController.destroy);
+
 
 
 //////////////////////////////////////////////////
