@@ -32,11 +32,12 @@ User.remove({}, function(err, users) {
          function(err, wishlists) {
             wishlists[0].restaurants.push({name: "Claws", address:"df", url: "dfs", pricing: 2, cuisine: "Seafood", picture_url: "dfa", diet_restriction: "df", rating: 2, rating_img_url: "dfd"});
             console.log(wishlists[0]);
-            if (err) {
-              console.log(err);
-            } else {
-              console.log(wishlists);
-            }
+            wishlists.forEach(function(e){
+              e.save(function(err) {
+              if(err) return handleError(err)
+              console.log("Success!");
+              })
+            });
           });
         }
     });
