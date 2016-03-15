@@ -9,8 +9,12 @@ $( document ).ready(function() {
     url: 'http://localhost:3000/api/wishlists',
     success: function(wishlists) {
       $.each(wishlists, function(i, wishlist) {
-        console.log(wishlist);
-        $wishlists.append(`<li class="collection-header"> ${wishlist.title} </li> <li class="collection-item"> ${wishlist.creator} </li>` );
+        $wishlists.append(`<li class="collection-header"> ${wishlist.title} </li>`)
+        for(var j = 0; j < wishlist.restaurants.length; j++){
+          console.log(wishlist);
+          console.log(wishlist._id);
+           $wishlists.append(`<li class="collection-item"> ${wishlist.restaurants[j].name} </li>` );
+        }
       });
     },
     error: function(err) {
