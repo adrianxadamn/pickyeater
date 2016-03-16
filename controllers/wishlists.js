@@ -5,15 +5,13 @@ var Wishlist = require('../models/wishlist');
 var User = require('../models/user')
 
 function index(req, res, next) {
-  Wishlist.find({})
-  .then(
-    function(wishlists) {
+  User.findById({_id: req.session.passport.user}, function(err, user) {
+    var id = user.id;
+    Wishlist.find({ creator: id}, function(err, wishlists) {
       res.json(wishlists);
-    },
-    function(err) {
-      console.log(err);
-    }
-  );
+    })
+  })
+
 };
 
 function show(req, res, next) {
@@ -25,14 +23,21 @@ function show(req, res, next) {
 };
 
 function post(req, res, next) {
-  var wishlist = new Wishlist();
-  wishlist.title = req.body.title;
-  wishlist.save(function(err, savedWishlist) {
-    if (err) {
-      console.log(err);
-    }
-      res.json(wishlist);
-  });
+  User.findById({_id: req.session.passport.user}, function(err, user) {
+    console.log(user)
+    console.log(user.name)
+    console.log(user.id)
+    var user = user.id;
+    var wishlist = new Wishlist();
+    wishlist.title = req.body.title;
+    wishlist.creator = user;
+    wishlist.save(function(err, savedWishlist) {
+      if (err) {
+        console.log(err);
+      }
+        res.json(wishlist);
+    });
+  })
 };
 
 function destroy(req, res, next) {

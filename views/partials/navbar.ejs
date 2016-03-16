@@ -3,9 +3,12 @@
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="/">Home</a></li>
+        <% if (user) { %>
         <li><a href="/wishlists">My Lists</a></li>
         <li><a href="/restaurants">Restaurants</a></li>
         <li><a href="">Randomize</a></li>
+        <% } else { %>
+        <% } %>
         <li><a href="/users">Users</a></li>
         <li><a href="">Sign Up</a></li>
         <% if (user) { %>

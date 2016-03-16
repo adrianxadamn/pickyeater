@@ -9,7 +9,6 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.clientSecret,
     callbackURL: process.env.baseSite
   },
-//please work for D. Jim said I could do this on Master. He swore in blood.
 
   function(accessToken, refreshToken, profile, cb) {
 
