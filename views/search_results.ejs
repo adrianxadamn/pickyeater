@@ -8,7 +8,7 @@
 <body>
 <div id="list-container">
   <% results.forEach(function(e) { %>
-      <div class="card" id="card">
+      <div class="card" id="e._id">
       <div id="card-image" class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="<%= e.picture_url %>">
         <!-- <button id="save-button">Save To My Wishlist</button> -->
@@ -22,13 +22,25 @@
         <p>Cuisine: <%= e.cuisine[0] %></p>
         <p><image src="<%= e.rating_img_url%>" /></p>
         <p><%= e.address %></p>
-        <button id="save-button">Save to Wishlist</button>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Save to Wishlist</a>
+      </div>
+    </div>
+    <div class="modal" id="modal1">
+      <div class="modal-content">
+        <h4>Wishlists</h4>
+          <form action="PUT" id="modal-lists"/></form>
+      </div>
+      <div class="modal-footer">
+        <a href="/wishlists" id="addWishlist" class="btn-flat modal-action modal-close waves-effect waves-default">Add</a>
       </div>
     </div>
   <% }) %>
 </div>
 <button><a href="/restaurants">Back</a></button>
+
 <%- include('partials/scripts') %>
+<script src="/js/wishlist_service.js"></script>
+
 </body>
 
 </html>

@@ -18,6 +18,38 @@ a { color: #00B7FF; }
   background-color: #9BD3DE;
 }
 
+/*home*/
+#image {
+  border: 2px solid;
+  max-height: 500px;
+  max-width: 400px;
+}
+
+#img-container {
+  border: 2px solid;
+  text-align: center;
+  background-color: #9BD3DE;
+}
+
+#teampics {
+  height: 200px;
+  width: 200px;
+  border: 2px solid;
+  border-radius: 50%;
+}
+
+#onepic {
+  border: 2px solid;
+  height: 400px;
+}
+
+#team-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border: 2px solid;
+}
+
 /*search_results.ejs page*/
 
 #list-container {
@@ -26,7 +58,7 @@ a { color: #00B7FF; }
   flex-wrap: wrap;
   margin: 0 auto;
   max-width: 1000px;
-  max-height: 600px;
+  max-height: 700px;
   overflow: scroll;
 }
 

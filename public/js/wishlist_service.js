@@ -1,4 +1,5 @@
-console.log('JS loaded!');
+console.log("wishlist_service connected");
+
 
 var $wishlists;
 var $title;
@@ -11,7 +12,6 @@ $( document ).ready(function() {
   $modalWishlists = $('#modal-lists');
   $addWishlist = $('#addWishlist');
 
-  function addStaurants() {
 
     $.ajax({
       method: 'GET',
@@ -35,49 +35,5 @@ $( document ).ready(function() {
         console.log(err);
       }
     });
-  }
 
-//event listeners
-
-  $('#add-wishlist').on('click', function() {
-
-    var wishlist = {
-      title: $title.val()
-    };
-
-    $.ajax({
-      method: 'POST',
-      url: 'http://localhost:3000/api/wishlists',
-      data: wishlist,
-      success: function(newWishlist) {
-        $wishlists.append(`<li> ${newWishlist.title} </li> <li> ${newWishlist.creator} </li>` );
-      },
-      error: function(err) {
-        console.log(err);
-      }
-    })
-  })
-
-$wishlists.delegate('.remove', 'click', function (){
- var $li = $(this).closest('li');
- $.ajax({
-    method: 'DELETE',
-    url: 'http://localhost:3000/wishlists/' + $(this).attr('data-id'),
-    success: function (){
-      $li.remove();
-    }
 });
- });
-
-// modal
-$('.modal-trigger').leanModal();
-
-//this doesn't work!
-$addWishlist.on('click', function() {
-  var $card = $('#card');
-  var $cardText = $('#card').text()
-  $wishlists.push($cardText)
-  })
-});
-
-

@@ -5,15 +5,13 @@ var Wishlist = require('../models/wishlist');
 var User = require('../models/user')
 
 function index(req, res, next) {
-  Wishlist.find({})
-  .then(
-    function(wishlists) {
+  User.findById({_id: req.session.passport.user}, function(err, user) {
+    var id = user.id;
+    Wishlist.find({ creator: id}, function(err, wishlists) {
       res.json(wishlists);
-    },
-    function(err) {
-      console.log(err);
-    }
-  );
+    })
+  })
+
 };
 
 function show(req, res, next) {
@@ -25,15 +23,57 @@ function show(req, res, next) {
 };
 
 function post(req, res, next) {
-  var wishlist = new Wishlist();
-  wishlist.title = req.body.title;
-  wishlist.save(function(err, savedWishlist) {
-    if (err) {
-      console.log(err);
-    }
-      res.json(wishlist);
-  });
+  User.findById({_id: req.session.passport.user}, function(err, user) {
+    console.log(user)
+    console.log("user:", user.name)
+    console.log(user.id)
+    var user = user.id;
+    var wishlist = new Wishlist();
+    wishlist.title = req.body.title;
+    wishlist.creator = user;
+    wishlist.save(function(err, savedWishlist) {
+      if (err) {
+        console.log(err);
+      }
+        res.json(wishlist);
+    });
+  })
 };
+
+function update(req, res, next) {
+
+}
+
+function addRestaurant(req, res, next) {
+  console.log("params!", req.params.id)
+  console.log("sessions!", req.session)
+  var id = req.params.id;
+  Wishlist.find({_id: req.params.id}, function(err, wishlist) {
+    // console.log(id);
+    console.log(err);
+    console.log("HELLPPPP ", wishlist);
+
+
+    wishlist[0].restaurants.push({
+      name:           req.body.name,
+      address:        req.body.address,
+      url:            req.body.url,
+      yelp_id:        req.body.yelp_id,
+      cuisine:        req.body.cuisine,
+      picture_url:    req.body.picture_url,
+      rating:         req.body.rating,
+      rating_img_url: req.body.rating_img_url
+    });
+
+    wishlist[0].save(function(err, wishlist){
+      if (err) console.log(err);
+      console.log('saved');
+      res.json(wishlist);
+    });
+    console.log('wishlist');
+    console.log(wishlist);
+  })
+}
 
 function destroy(req, res, next) {
   Wishlist
@@ -50,5 +90,6 @@ module.exports = {
   index: index,
   post: post,
   show: show,
-  destroy: destroy
+  destroy: destroy,
+  addRestaurant: addRestaurant
 }
