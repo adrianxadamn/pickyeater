@@ -19,7 +19,7 @@ $( document ).ready(function() {
       success: function(wishlists) {
         var wishlistTemplate1 = "<li><p>title: {{title}}</p>" + "<button data-id='{{_id}}' class='remove'>X</button></li>"
         var wishlistTemplate2 = "<li>restaurant: {{name}}</li>"
-        var modalWishlistTemplate = "<p><input name='{{title}}' type='radio' id='{{_id}}'/><label for='{{_id}}'>{{title}}</label></p>"
+        var modalWishlistTemplate = '<p><input name="schmee" type="radio" id="{{_id}}"/><label for="{{_id}}">{{title}}</label></p>'
 
         $.each(wishlists, function(i, wishlist) {
           $wishlists.append(Mustache.render(wishlistTemplate1, wishlist));
