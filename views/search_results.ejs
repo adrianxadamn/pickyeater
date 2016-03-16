@@ -8,7 +8,7 @@
 <body>
 <div id="list-container">
   <% results.forEach(function(e) { %>
-      <div class="card" id="e._id">
+      <div class="card" id="<%= e._id %>">
       <div id="card-image" class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="<%= e.picture_url %>">
         <!-- <button id="save-button">Save To My Wishlist</button> -->
@@ -22,7 +22,7 @@
         <p>Cuisine: <%= e.cuisine[0] %></p>
         <p><image src="<%= e.rating_img_url%>" /></p>
         <p><%= e.address %></p>
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Save to Wishlist</a>
+        <button class="waves-effect waves-light btn save-wishlist-btn">Save to Wishlist</button>
       </div>
     </div>
     <div class="modal" id="modal1">
@@ -31,7 +31,7 @@
           <form action="PUT" id="modal-lists"/></form>
       </div>
       <div class="modal-footer">
-        <a href="/wishlists" id="addWishlist" class="btn-flat modal-action modal-close waves-effect waves-default">Add</a>
+        <button id="addWishlist" class="btn-flat modal-action modal-close waves-effect waves-default">Add</button>
       </div>
     </div>
   <% }) %>
