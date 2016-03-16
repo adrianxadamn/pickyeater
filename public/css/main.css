@@ -86,3 +86,15 @@ a { color: #00B7FF; }
 #card-reveal {
 
 }
+
+ul li .edit {
+  display: none;
+}
+
+ul li.edit .edit {
+  display: initial;
+}
+
+ul li.edit .noedit {
+  display: none;
+}

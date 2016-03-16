@@ -4,6 +4,7 @@ var $wishlists;
 var $title;
 var $modalWishlists;
 var $addWishlist;
+var $li;
 
 $( document ).ready(function() {
   $wishlists = $('#wishlist-list');
@@ -17,9 +18,9 @@ $( document ).ready(function() {
       method: 'GET',
       url: 'http://localhost:3000/api/wishlists',
       success: function(wishlists) {
-        var wishlistTemplate1 = "<li><p>title: {{title}}</p>" + "<button data-id='{{_id}}' class='remove'>X</button></li>"
-        var wishlistTemplate2 = "<li>restaurant: {{name}}</li>"
-        var modalWishlistTemplate = '<p><input name="schmee" type="radio" id="{{_id}}"/><label for="{{_id}}">{{title}}</label></p>'
+        var wishlistTemplate1 = $('#wishlistTemplate1').html();
+        var wishlistTemplate2 = $('#wishlistTemplate2').html();
+        var modalWishlistTemplate = $('#modalWishlistTemplate').html();
 
         $.each(wishlists, function(i, wishlist) {
           $wishlists.append(Mustache.render(wishlistTemplate1, wishlist));
