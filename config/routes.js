@@ -29,10 +29,8 @@ router.delete('/wishlists/:id', wishlistController.destroy);
 //////////////////////////////////////////////////
 router.get('/api/wishlists', wishlistController.index);
 router.get('/api/wishlists/:id', wishlistController.show);
-router.post('/api/wishlists', wishlistController.post);
 router.put('/api/wishlists/:id', wishlistController.addRestaurant);
-
-
+router.post('/api/wishlists', wishlistController.post);
 
 //////////////////////////////////////////////////
 ////////////// search resource paths//////////////
