@@ -3,14 +3,14 @@ var mongoose = require('mongoose'),
 
 
 restaurantSchema = new mongoose.Schema({
-  name:             { type: String, required: true },
-  address:          { type: String, required: true },
-  url:              { type: String, required: true },
+  name:             { type: String },
+  address:          { type: String },
+  url:              { type: String },
   yelp_id:          { type: String },
-  cuisine:          { type: String, required: true },
-  picture_url:      { type: String, required: true },
-  rating:           { type: Number, required: true },
-  rating_img_url:   { type: String, required: true }
+  cuisine:          { type: String },
+  picture_url:      { type: String },
+  rating:           { type: Number },
+  rating_img_url:   { type: String }
 });
 
 var wishlistSchema = new mongoose.Schema({
