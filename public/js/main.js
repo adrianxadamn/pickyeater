@@ -69,8 +69,8 @@ $wishlists.delegate('.remove', 'click', function (){
 });
  });
 
-// modal
-$('.modal-trigger').leanModal();
+//carousel:
+$('.slider').slider({full_width: true});
 
 //this doesn't work!
 $addWishlist.on('click', function() {
