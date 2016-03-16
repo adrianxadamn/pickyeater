@@ -77,6 +77,17 @@ function createWishlistDialog() {
   $addWishlist.on('click', function() {
     addRestaurantToWishlist();
   });
+
+  $wishlists.delegate('.remove', 'click', function (){
+ var $li = $(this).closest('li');
+ $.ajax({
+    method: 'DELETE',
+    url: 'http://localhost:3000/wishlists/' + $(this).attr('data-id'),
+    success: function (){
+      $li.remove();
+    }
+});
+ });
 }
 
 function addRestaurantToWishlist() {
