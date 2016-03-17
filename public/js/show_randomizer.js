@@ -23,7 +23,7 @@ function getRandom(id) {
 
   $.ajax({
     method: 'GET',
-    url: "http://localhost:3000/api/wishlists/" + id,
+    url: "/api/wishlists/" + id,
     success: function(wishlist) {
       console.log(wishlist);
       randomRestaurant = (Math.floor(Math.random() * wishlist.restaurants.length));
