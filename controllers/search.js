@@ -2,7 +2,6 @@ var request = require("request");
 var env = require("../config/environment");
 var _ = require('lodash');
 var util = require('util');
-
 var Yelp = require('yelp');
 
 var yelp = new Yelp({
@@ -12,22 +11,21 @@ var yelp = new Yelp({
   token_secret: process.env.token_secret
 });
 
-
-
 function search(req, res, next) {
-  // console.log("hi from search function");
-  // console.log(req.body);
+  //Retrieves information from user input from client side
   var location = req.body.search.place;
   var limit = parseInt(req.body.search.limit);
-  var category = req.body.search.category.toLowerCase();
+  var food = req.body.search.category.toLowerCase();
 
-  // See http://www.yelp.com/developers/documentation/v2/search_api
-  yelp.search({ term: "food", location: location, limit: limit, category_filter: category }, function(error, data) {
+  // Retrieves data from YELP API
+  yelp.search({ term: food, location: location, limit: limit }, function(error, data) {
     if (error) res.json({message: error});
     // console.log(util.inspect(data, false, null));
     var businesses = data.businesses;
     var results = [];
     console.log(businesses);
+    //for each business, data from yelp is being added into an object
+    //and then push into an array called results
     businesses.forEach(function(el) {
       var temp = {};
       temp.yelp_id          =  el.id
@@ -47,8 +45,6 @@ function search(req, res, next) {
 
   });
 };
-
-
 
 module.exports = {
   search: search

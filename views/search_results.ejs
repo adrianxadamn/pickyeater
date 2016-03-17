@@ -11,14 +11,13 @@
     <div class="card" id="<%= e.yelp_id %>">
       <div id="card-image" class="card-image waves-effect waves-block waves-light">
         <img class="activator pic" src="<%= e.picture_url %>">
-        <!-- <button id="save-button">Save To My Wishlist</button> -->
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"><%= e.name %><i class="material-icons right">description</i></span>
-        <p><a class="url" href="<%= e.url %>" target="_blank">Learn More on Yelp</a></p>
+        <p><a href="<%= e.url %>" target="_blank">Learn More on Yelp</a></p>
       </div>
       <div class="card-reveal" id="card-reveal">
-        <span class="card-title grey-text text-darken-4">
+        <span id="<%= e.url %>" class="card-title grey-text text-darken-4">
           <p class="<%= e.name %>"><%= e.name %></p>
           <i class="material-icons right">close</i>
         </span>

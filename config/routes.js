@@ -7,22 +7,24 @@ var usersController = require('../controllers/users');
 var searchController = require('../controllers/search');
 var wishlistController = require('../controllers/wishlists');
 
-// root path:
+//////////////////////////////////////////////////
+////////////////////root path/////////////////////
+//////////////////////////////////////////////////
 router.get('/', function(req, res, next) {
   res.render('home', {user: req.user})
 })
-
+//////////////////////////////////////////////////
+/////////////search restaurant path///////////////
+//////////////////////////////////////////////////
 router.get('/restaurants', function(req, res, next) {
   res.render('restaurants', {user: req.user});
 })
 //////////////////////////////////////////////////
 /////////////////wishlists path://////////////////
 //////////////////////////////////////////////////
-
 router.get('/wishlists', function(req, res, next) {
   res.render('wishlists', {user: req.user});
 })
-
 router.get('/wishlists/:id', wishlistController.show);
 router.put('/wishlists/:id', wishlistController.listUpdate);
 router.delete('/wishlists/:id', wishlistController.destroy);
@@ -34,7 +36,6 @@ router.get('/api/wishlists/:id', wishlistController.show);
 router.put('/api/wishlists/:id', wishlistController.addRestaurant)
 router.put('/api/wishlists/:id/restaurants', wishlistController.addRestaurant);
 router.post('/api/wishlists', wishlistController.post);
-
 //////////////////////////////////////////////////
 ////////////// search resource paths//////////////
 //////////////////////////////////////////////////
@@ -46,7 +47,6 @@ router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
 ));
-
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
@@ -54,7 +54,6 @@ router.get('/oauth2callback', passport.authenticate(
     failureRedirect: '/'
   }
   ));
-
 router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
