@@ -1,1 +1,18 @@
-<h1><%= wishlist.title %></h1>
+<!DOCTYPE html>
+
+<% for (var i = 0; i < wishlist.restaurants.length; i++) { %>
+<h1><%= `${wishlist.restaurants[i].name}` %></h1>
+<img src="<%= `${wishlist.restaurants[i].picture_url}` %>"><br>
+<span><%=`Cuisine: ${wishlist.restaurants[i].cuisine}`%></span><br>
+<img src="<%= `${wishlist.restaurants[i].rating_img_url}` %>"><br>
+<span><%=`${wishlist.restaurants[i].address}`%></span><br>
+
+
+
+
+<% }; %>
+</div>
+<button random-wishlist-btn>RANDOMIZER</button>
+</body>
+
+</html>
