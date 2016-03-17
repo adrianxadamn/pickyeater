@@ -3,12 +3,11 @@ var _ = require('lodash');
 var util = require('util');
 var Wishlist = require('../models/wishlist');
 var User = require('../models/user')
-var currentUser;
+
 
 function index(req, res, next) {
   User.findById({_id: req.session.passport.user}, function(err, user) {
     var id = user.id;
-    currentUser = user;
     Wishlist.find({ creator: id}, function(err, wishlists) {
       res.json(wishlists);
     })
@@ -110,11 +109,27 @@ function destroy(req, res, next) {
   })
 };
 
+// randomizer function
+  // this is hoisted:
+function shuffleList(restaurants) {
+  return restaurants[(Math.floor(Math.random() * restaurants.length))];
+};
+//randomize restaurants within a wishlist
+function randomRest(req, res, next){
+  var id = req.params.id;
+  Wishlist.find({_id: id}, function(err, wishlist) {
+    var taurs = wishlist[0].restaurants;
+    var taur = shuffleList(taurs);
+    res.json(taur);
+  })
+};
+
 module.exports = {
   index: index,
   post: post,
   show: show,
   destroy: destroy,
   addRestaurant: addRestaurant,
-  listUpdate: listUpdate
+  listUpdate: listUpdate,
+  randomRest: randomRest
 }
