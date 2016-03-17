@@ -47,7 +47,9 @@ $( document ).ready(function() {
     chosenRestaurant.yelp_id = $(evt.target).closest('.card').attr('id');
     chosenRestaurant.picture_url = $(evt.target).closest('.card').children().children().attr('src');
     chosenRestaurant.name = $(evt.target).parent().children().children().attr("class");
-    chosenRestaurant.address = $(evt.target).prev().attr('class')
+    chosenRestaurant.address = $(evt.target).prev().attr('class');
+    chosenRestaurant.rating_img_url = $(evt.target).prev().prev().attr('class');
+    chosenRestaurant.cuisine = $(evt.target).prev().prev().prev().attr('class');
 
     console.log("the url: ", chosenRestaurant.url);
     console.log(chosenRestaurant);
@@ -128,13 +130,8 @@ function addRestaurantToWishlist(evt) {
       // });
     }
   });
-  //in callback, do redirect to using (window.location)
 }
 
-
-// var $card = $('#card');
-// var $cardText = $('#card').text();
-// $wishlists.push($cardText);
 
 
 
