@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<h1 id='<%= wishlist._id%>'><%=wishlist.name%></h1>
+<h1 id='<%= wishlist._id%>'><%=wishlist.title%></h1>
 <ul class="grab-me">
 <% for (var i = 0; i < wishlist.restaurants.length; i++) { %>
 <li>
@@ -15,10 +15,13 @@
 <% }; %>
 </ul>
 
-<button random-wishlist-btn>RANDOMIZER</button>
+<button class="random-wishlist-btn" value="<%= wishlist._id%>">RANDOMIZER</button>
+
+
 
   <%- include('../partials/scripts') %>
 <script src="../js/wishlist_index.js"></script>
+<script src="../js/show_randomizer.js"></script>
 
 </body>
 

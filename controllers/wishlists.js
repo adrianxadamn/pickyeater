@@ -23,6 +23,14 @@ function show(req, res, next) {
   });
 };
 
+function showAPI(req, res, next) {
+  var id = req.params.id;
+  Wishlist.findById(id, function(err, wishlist){
+    if (err) console.log(err);
+      else res.json(wishlist);
+  });
+};
+
 function post(req, res, next) {
   User.findById({_id: req.session.passport.user}, function(err, user) {
     console.log(user)
@@ -146,5 +154,6 @@ module.exports = {
   addRestaurant: addRestaurant,
   listUpdate: listUpdate,
   randomRest: randomRest,
-  removeRestaurant: removeRestaurant
+  removeRestaurant: removeRestaurant,
+  showAPI: showAPI
 }
