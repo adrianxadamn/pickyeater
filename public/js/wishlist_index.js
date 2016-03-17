@@ -78,6 +78,21 @@ function createWishlistDialog() {
   });
    });
 
+$('.grab-me').on('click', '.remove-rs', function () {
+var $li = $(this).closest('li');
+console.log("wl_id", $('h1').attr('id') )
+console.log("rs_id", $(this).attr('data-id') )
+$.ajax({
+      method: 'DELETE',
+      url: 'http://localhost:3000/api/wishlists/' + $('h1').attr('id') + '/restaurants/' + $(this).attr('data-id'),
+      success: function (){
+        $li.remove();
+      }
+  });
+})
+//Remove restaurant from wishlist:
+
+
   //Edit wishlist:
   //////////////////////
   //////////////////////
