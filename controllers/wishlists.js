@@ -109,6 +109,7 @@ function destroy(req, res, next) {
   })
 };
 
+<<<<<<< HEAD
 // randomizer function
   // this is hoisted:
 function shuffleList(restaurants) {
@@ -124,6 +125,21 @@ function randomRest(req, res, next){
   })
 };
 
+=======
+function removeRestaurant(req, res, next) {
+  var id = req.params.wl_id;
+  Wishlist.findById(id, function(err, wishlist) {
+    if (err) res.send(err);
+
+    wishlist.restaurants.pull({_id: req.params.rs_id})
+    wishlist.save(function(err, wishlist){
+      if (err) res.send(err);
+
+      res.json(wishlist);
+    });
+  });
+};
+
 module.exports = {
   index: index,
   post: post,
@@ -131,5 +147,6 @@ module.exports = {
   destroy: destroy,
   addRestaurant: addRestaurant,
   listUpdate: listUpdate,
-  randomRest: randomRest
+  randomRest: randomRest,
+  removeRestaurant: removeRestaurant
 }

@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-
+<h1 id='<%= wishlist._id%>'><%=wishlist.name%></h1>
+<ul class="grab-me">
 <% for (var i = 0; i < wishlist.restaurants.length; i++) { %>
-<h1><%= `${wishlist.restaurants[i].name}` %></h1>
+<li>
+<h2><%= `${wishlist.restaurants[i].name}` %></h2>
 <img src="<%= `${wishlist.restaurants[i].picture_url}` %>"><br>
 <span><%=`Cuisine: ${wishlist.restaurants[i].cuisine}`%></span><br>
 <img src="<%= `${wishlist.restaurants[i].rating_img_url}` %>"><br>
 <span><%=`${wishlist.restaurants[i].address}`%></span><br>
-
-
+<button data-id=<%=`${wishlist.restaurants[i].id}`%> class="remove-rs">Remove Restaurant From List</button>
+</li>
 
 
 <% }; %>
-</div>
+</ul>
+
 <button random-wishlist-btn>RANDOMIZER</button>
+
+  <%- include('../partials/scripts') %>
+<script src="../js/wishlist_index.js"></script>
+
 </body>
 
 </html>
