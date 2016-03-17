@@ -22,8 +22,8 @@
           <p class="<%= e.name %>"><%= e.name %></p>
           <i class="material-icons right">close</i>
         </span>
-          <p class="lol">Cuisine: <%= e.cuisine[0] %></p>
-          <p>
+          <p class="<%= e.cuisine[0] %>">Cuisine: <%= e.cuisine[0] %></p>
+          <p class= "<%= e.rating_img_url %>">
             <image src="<%= e.rating_img_url%>" />
           </p>
           <p class="<%= e.address %>"><%= e.address %></p>
