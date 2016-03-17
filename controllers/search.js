@@ -41,7 +41,7 @@ function search(req, res, next) {
       })
       results.push(temp);
     })
-    res.render("search_results", {results: results});
+    res.render("search_results", {results: results, user: req.user});
 
   });
 };
