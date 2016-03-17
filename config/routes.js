@@ -37,6 +37,8 @@ router.put('/api/wishlists/:id', wishlistController.addRestaurant)
 router.put('/api/wishlists/:id/restaurants', wishlistController.addRestaurant);
 router.post('/api/wishlists', wishlistController.post);
 router.get('/api/wishlists/:id/random', wishlistController.randomRest);
+router.delete('/api/wishlists/:wl_id/restaurants/:rs_id', wishlistController.removeRestaurant);
+
 //////////////////////////////////////////////////
 ////////////// search resource paths//////////////
 //////////////////////////////////////////////////
