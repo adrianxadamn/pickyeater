@@ -6,37 +6,55 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%- include('partials/head') %>
 </head>
 <body>
   <%- include('partials/navbar') %>
 
-  <h1>Wishlists</h1>
+  <h1 class="wishlist-title">Wishlists</h1>
   <ul class="collection with-header", id="wishlist-list">
 
   <template id="wishlistTemplate1">
-  <li data-id='{{_id}}'>
-  <p> title:
-  <span class="noedit title">{{title}}</span>
-  <input class="edit title"/>
-  </p>
-  <button data-id="{{_id}}" class="remove">Delete</button>
-
-  <button class="editList noedit">Edit</button>
-  <button class="saveEdit edit">Save</button>
-  <button class="cancelList edit">Cancel</button>
-  </li>
+    <div class="wishlist-container">
+      <li data-id='{{_id}}'>
+        <span class="noedit title">{{title}}</span>
+        <a href="/wishlists/{{_id}}"><i class="material-icons">info</i></a>
+        <input class="edit title"/>
+      </a>
+      <div class="buttons">
+          <button data-id="{{_id}}" class="remove btn waves-effect waves-light">Remove</button>
+          <button class="editList noedit btn waves-effect waves-light">Edit</button>
+          <button class="saveEdit edit btn waves-effect waves-light">Save</button>
+          <button class="cancelList edit btn waves-effect waves-light">Cancel</button>
+      </div>
+      </li>
+    </div>
   </template>
 
- <template id="wishlistTemplate2">
-  <li data-id='{{_id}}'>
-  restaurant:
-  <span class="noedit name">{{name}}</span>
-  <span class="noedit name"><img src= '{{picture_url}}'></span>
-  <input class="edit name"/>
-  </li>
+  <template id="wishlistTemplate2">
+    <div class="restaurants-container">
+      <li data-id='{{_id}}'>
+      <input class="edit name"/>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{name}}</span>
+              <ul>
+                <li>{{cuisine}}</li>
+                <li>{{address}} <img src="{{rating_img_url}}"></li>
+                <li><img src="{{picture_url}}"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      </li>
+    </div>
   </template>
-
+</ul>
   <template id= "modalWishlistTemplate">
   <li>
   <p><input name="title" type="radio" id="{{_id}}"/><label for="{{_id}}">{{title}}</label></p>
@@ -48,7 +66,7 @@
 
   <h4>Add Wishlist</h4>
   <p>title: <input type="text" id="title"></p>
-  <button id="add-wishlist">Add</button>
+  <button id="add-wishlist" class="btn waves-effect waves-light">Add</button>
   <%- include('partials/scripts') %>
   <script src="/js/wishlist_index.js"></script>
 </body>

@@ -78,14 +78,11 @@ a { color: #00B7FF; }
   margin-top: 20px;
 }
 
-
 #card-image {
   background-color: brown;
 }
 
-#card-reveal {
-
-}
+/*wishlists.ejs page*/
 
 ul li .edit {
   display: none;
@@ -101,4 +98,25 @@ ul li.edit .noedit {
 
 .email, .copyright {
   color: #EEEEEF;
+}
+.title, .wishlist-title{
+  font-family: "Anton", "sans-serif";
+  font-size: 50px;
+  color: black;
+}
+.wishlist-container {
+  text-align: center;
+  /*float: left;*/
+}
+
+.restaurants-container {
+  border: 2px solid;
+  /*position: relative;*/
+  display: inline-block;
+  min-width: 330px;
+  min-height: 290px;
+}
+
+.buttons {
+
 }
