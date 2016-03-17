@@ -1,21 +1,36 @@
 
 $(document).ready(function(){
 console.log("hi")
+
 //Event listener for random
   $(".random-wishlist-btn").on("click", function(evt) {
-    reRandom();
     id = evt.target.value;
     console.log(id);
     console.log("random");
     getRandom(id);
   });
 });
+
+//Re-renders for another restaurant choice
+$('#re-randomize').on('click', function() {
+  reRandom();
+})
+
 //Template for random restaurant
 var renderRandom = _.template(
-  `<li> ${name} <br> <%= address %> <br> <%= url %> <br>
-  <%= picture_url %> <br> <%= rating_img_url %> </li>`
+
+  `
+  <h4> <%= name %> </h4>
+  <span> <%= address %> </span>
+  <br>
+  <span> <a href="<%= url %>">yelp info</a> </span>
+  <br>
+  <span> <img src="<%= picture_url %>"></span>
+  <br>
+  <span> <img src="<%= rating_img_url %>"></span>`
 );
 
+ $('.random-button').leanModal();
 //Function for random restaurant from the wishlist
 function getRandom(id) {
   console.log("whts up");
@@ -30,7 +45,7 @@ function getRandom(id) {
       console.log(randomRestaurant);
       console.log(wishlist.restaurants[randomRestaurant]);
       var chosenRestaurant = wishlist.restaurants[randomRestaurant];
-      $("#random-restaurant").append(renderRandom(chosenRestaurant));
+      $(".modal-content").append(renderRandom(chosenRestaurant));
     },
     error: function(err) {
       console.log(err);
@@ -38,8 +53,8 @@ function getRandom(id) {
   });
 };
 
-//Re-renders for another restaurant choice
 function reRandom() {
   console.log("clearing previous restaurant")
-  $("#random-restaurant").html(""); //this clears the current pick
+  $(".modal-content").html(""); //this clears the current pick
+  getRandom(id);
 }

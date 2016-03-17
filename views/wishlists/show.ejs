@@ -27,11 +27,17 @@
   <% }; %>
 </ul>
 
-<div id="random-restaurant"></div>
+<!-- <div id="random-restaurant"></div> -->
 
 
-<button class="random-wishlist-btn btn #03a9f4 light-blue" value="<%= wishlist._id%>">RANDOMIZER</button>
-
+<button data-target="restaurant-modal" class="random-wishlist-btn btn #03a9f4 light-blue random-button" value="<%= wishlist._id%>">RANDOMIZER</button>
+<div id="restaurant-modal" class="modal">
+     <div class="modal-content">
+     </div>
+     <div class="modal-footer">
+       <button id="re-randomize" class="waves-effect waves-green btn-flat">REDO</a>
+     </div>
+   </div>
   <%- include('../partials/scripts') %>
 <script src="../js/wishlist_index.js"></script>
 <script src="../js/show_randomizer.js"></script>
