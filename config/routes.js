@@ -22,6 +22,7 @@ router.get('/restaurants', function(req, res, next) {
 router.get('/wishlists', function(req, res, next) {
   res.render('wishlists', {user: req.user});
 })
+
 router.get('/wishlists/:id', wishlistController.show);
 router.put('/wishlists/:id', wishlistController.listUpdate);
 router.delete('/wishlists/:id', wishlistController.destroy);
