@@ -16,11 +16,13 @@
 
   <template id="wishlistTemplate1">
   <li data-id='{{_id}}'>
-  <p> title:
-  <span class="noedit title">{{title}}</span>
-  <input class="edit title"/>
-  </p>
-  <button data-id="{{_id}}" class="remove">Delete</button>
+  <a href="/wishlists/{{_id}}">
+    <p> title:
+    <span class="noedit title">{{title}}</span>
+    <input class="edit title"/>
+    </p>
+  </a>
+  <button data-id="{{_id}}" class="remove">X</button>
   <button class="editList noedit">Edit</button>
   <button class="saveEdit edit">Save</button>
   <button class="cancelList edit">Cancel</button>
@@ -48,6 +50,6 @@
   <p>title: <input type="text" id="title"></p>
   <button id="add-wishlist">Add</button>
   <%- include('partials/scripts') %>
-  <script src="/js/wishlist_service.js"></script>
+  <script src="/js/wishlist_index.js"></script>
 </body>
 </html>
