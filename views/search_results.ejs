@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+<%- include('partials/navbar') %>
 <div id="list-container">
   <% results.forEach(function(e) { %>
     <div class="card" id="<%= e.yelp_id %>">
@@ -40,8 +41,6 @@
     </div>
   <% }) %>
 </div>
-<button><a href="/">Home</a></button>
-<button><a href="/restaurants">Back To Search</a></button>
 
 <%- include('partials/scripts') %>
 <script src="/js/wishlist_service.js"></script>
