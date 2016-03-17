@@ -76,7 +76,8 @@ $( document ).ready(function() {
 function createWishlistDialog() {
   var wishlistTemplate1 = '<li><p>title: {{title}}</p>' + '<button data-id="{{_id}}" class="remove">X</button></li>'
    var wishlistTemplate2 = '<li>restaurant: {{name}}</li>'
-   var modalWishlistTemplate = '<p><input name="title" type="radio" value="{{_id}}" id="{{_id}}" /><label for="{{_id}}">{{title}}</label></p>'
+   var modalWishlistTemplate =
+   '<p><input name="title" type="radio" value="{{_id}}" id="{{_id}}" /><label for="{{_id}}">{{title}}</label></p>'
   $.ajax({
     method: 'GET',
     url: 'http://localhost:3000/api/wishlists',
@@ -117,6 +118,7 @@ function addRestaurantToWishlist(evt) {
     data: chosenRestaurant,
     success: function(wishlist) {
       wishlist.restaurants.push(chosenRestaurant);
+      Materialize.toast(`Added To ${wishlist.title}`, 3000);
       console.log(wishlist)
       // wishlist.save(function(err, wishlist) {
       //   if (err) console.log(err);
