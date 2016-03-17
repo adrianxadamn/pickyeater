@@ -30,6 +30,7 @@ router.delete('/wishlists/:id', wishlistController.destroy);
 //////////////////////////////////////////////////
 router.get('/api/wishlists', wishlistController.index);
 router.get('/api/wishlists/:id', wishlistController.show);
+router.put('/api/wishlists/:id', wishlistController.addRestaurant)
 router.put('/api/wishlists/:id/restaurants', wishlistController.addRestaurant);
 router.post('/api/wishlists', wishlistController.post);
 

@@ -107,8 +107,23 @@ function createWishlistDialog() {
 function addRestaurantToWishlist(evt) {
   console.log("adding restaurants to wishlist");
   //perform ajax PUT to /api/wishlists/:id including data from the object global variable
+  var chosenWishlist = $("input[name=title]:checked").val();
+  console.log("wishlist: ", chosenWishlist);
+  console.log(chosenRestaurant);
 
-
+  $.ajax({
+    method: 'PUT',
+    url: 'http://localhost:3000/api/wishlists/' + chosenWishlist,
+    data: chosenRestaurant,
+    success: function(wishlist) {
+      wishlist.restaurants.push(chosenRestaurant);
+      console.log(wishlist)
+      // wishlist.save(function(err, wishlist) {
+      //   if (err) console.log(err);
+      //   console.log(wishlist);
+      // });
+    }
+  });
   //in callback, do redirect to using (window.location)
 }
 
