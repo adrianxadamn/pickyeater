@@ -4,6 +4,7 @@ var $wishlists;
 var $title;
 var $modalWishlists;
 var $addWishlist;
+var chosenRestaurant = {};
  //gather data for restaurants from DOM above evt.target and put in object global variable
   //look at .parent or .closest method of jQuery / consider adding class names to the relevant elements
     // that we are trying to extract data from
@@ -18,7 +19,9 @@ $( document ).ready(function() {
 
   function openWishlistDialog(evt) {
     console.log("event:", evt);
-    var chosenRestaurant = $(evt.target).closest('.card').attr('id');
+    chosenRestaurant.yelp_id = $(evt.target).closest('.card').attr('id');
+    chosenRestaurant.picture_url = $(evt.target).closest('.card').children().children().attr('src');
+    chosenRestaurant.name = $(evt.target).parent().children().children().attr("class");
 
     console.log(chosenRestaurant);
     //gather data for restaurants from DOM above evt.target and put in object global variable
@@ -29,10 +32,10 @@ $( document ).ready(function() {
   }
 
 // When you click on "Save Wishlist", modal appears
-  $('.save-wishlist-btn').leanModal();
 
 // When you click on "Save Wishlist", want to make sure that we are grabbing restaurant id"
   $('.save-wishlist-btn').on('click', function(evt){
+    $('.save-wishlist-btn').leanModal();
     openWishlistDialog(evt);
   });
 
