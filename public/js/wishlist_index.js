@@ -55,7 +55,7 @@ function createWishlistDialog() {
       url: 'http://localhost:3000/api/wishlists',
       data: wishlist,
       success: function(newWishlist) {
-        $wishlists.append(`<li> ${newWishlist.title} </li>` );
+        $wishlists.append(Mustache.render(wishlistTemplate1, newWishlist));
       },
       error: function(err) {
         console.log(err);
@@ -72,7 +72,7 @@ function createWishlistDialog() {
    $.ajax({
       method: 'DELETE',
       url: 'http://localhost:3000/wishlists/' + $(this).attr('data-id'),
-      success: function (){
+      success: function (wishlist){
         $li.remove();
       }
     });
