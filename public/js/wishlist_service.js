@@ -1,10 +1,13 @@
 console.log("wishlist_service connected");
 
-
 var $wishlists;
 var $title;
 var $modalWishlists;
 var $addWishlist;
+var chosenRestaurant = {};
+ //gather data for restaurants from DOM above evt.target and put in object global variable
+  //look at .parent or .closest method of jQuery / consider adding class names to the relevant elements
+    // that we are trying to extract data from
 
 $( document ).ready(function() {
   $wishlists = $('#wishlist-list');
@@ -38,11 +41,28 @@ $( document ).ready(function() {
     })
   })
 
+  function openWishlistDialog(evt) {
+    console.log("event:", evt);
+    chosenRestaurant.yelp_id = $(evt.target).closest('.card').attr('id');
+    chosenRestaurant.picture_url = $(evt.target).closest('.card').children().children().attr('src');
+    chosenRestaurant.name = $(evt.target).parent().children().children().attr("class");
 
-  $('.modal-trigger').leanModal();
 
-  //this doesn't work!
+    console.log(chosenRestaurant);
+    //gather data for restaurants from DOM above evt.target and put in object global variable
+    //look at .parent or .closest method of jQuery / consider adding class names to the relevant elements
+    // that we are trying to extract data from
 
+    //show dialog
+  }
+
+// When you click on "Save Wishlist", modal appears
+
+// When you click on "Save Wishlist", want to make sure that we are grabbing restaurant id"
+  $('.save-wishlist-btn').on('click', function(evt){
+    $('.save-wishlist-btn').leanModal();
+    openWishlistDialog(evt);
+  });
 
 });
 
@@ -125,21 +145,14 @@ function createWishlistDialog() {
 });
 }
 
-function addRestaurantToWishlist() {
+function addRestaurantToWishlist(evt) {
   console.log("adding restaurants to wishlist");
-  //perform ajax POST to /api/wishlists/:id including data from the object global variable
+  //perform ajax PUT to /api/wishlists/:id including data from the object global variable
 
   //in callback, do redirect to using (window.location)
 }
 
-function openWishlistDialog(evt) {
-  console.log("event:", evt);
-  //gather data for restaurants from DOM above evt.target and put in object global variable
-  //look at .parent or .closest method of jQuery / consider adding class names to the relevant elements
-    // that we are trying to extract data from
 
-  //show dialog
-}
 // var $card = $('#card');
 // var $cardText = $('#card').text();
 // $wishlists.push($cardText);
