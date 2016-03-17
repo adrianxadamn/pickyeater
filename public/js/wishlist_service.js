@@ -39,8 +39,8 @@ $( document ).ready(function() {
       error: function(err) {
         console.log(err);
       }
-    })
-  })
+    });
+  });
 
   function openWishlistDialog(evt) {
     console.log("event:", evt);
@@ -50,6 +50,7 @@ $( document ).ready(function() {
     chosenRestaurant.address = $(evt.target).prev().attr('class');
     chosenRestaurant.rating_img_url = $(evt.target).prev().prev().attr('class');
     chosenRestaurant.cuisine = $(evt.target).prev().prev().prev().attr('class');
+    chosenRestaurant.url = $(evt.target).prev().prev().prev().prev().attr('id');
 
     console.log("the url: ", chosenRestaurant.url);
     console.log(chosenRestaurant);
@@ -104,7 +105,7 @@ function createWishlistDialog() {
       console.log(err);
     }
   });
-}
+};
 
 
 
@@ -130,7 +131,7 @@ function addRestaurantToWishlist(evt) {
       // });
     }
   });
-}
+};
 
 
 

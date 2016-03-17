@@ -61,7 +61,7 @@ function createWishlistDialog() {
         console.log(err);
       }
     })
-  })
+  });
 
   //Remove wishlist:
   //////////////////////
@@ -75,31 +75,31 @@ function createWishlistDialog() {
       success: function (){
         $li.remove();
       }
-  });
+    });
    });
 
   //Edit wishlist:
   //////////////////////
   //////////////////////
 
-    $wishlists.delegate('.editList', 'click', function() {
-      var $li = $(this).closest('li');
-      $li.find('input.name').val($li.find('span.name').html() );
-      $li.find('input.title').val($li.find('span.title').html() );
-      $li.addClass('edit');
-    });
-
-
-   $wishlists.delegate('.cancelList', 'click', function() {
-   $(this).closest('li').removeClass('edit');
-    });
-
-   $wishlists.delegate('.saveEdit', 'click', function() {
+  $wishlists.delegate('.editList', 'click', function() {
     var $li = $(this).closest('li');
-    var wishlist = {
-    name : $li.find('input.name').val(),
-    title : $li.find('input.title').val()
-   };
+    $li.find('input.name').val($li.find('span.name').html() );
+    $li.find('input.title').val($li.find('span.title').html() );
+    $li.addClass('edit');
+  });
+
+
+  $wishlists.delegate('.cancelList', 'click', function() {
+  $(this).closest('li').removeClass('edit');
+  });
+
+  $wishlists.delegate('.saveEdit', 'click', function() {
+  var $li = $(this).closest('li');
+  var wishlist = {
+  name : $li.find('input.name').val(),
+  title : $li.find('input.title').val()
+  };
 
     $.ajax({
         method: 'PUT',

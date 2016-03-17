@@ -51,18 +51,18 @@ var id = req.params.id;
       res.send(err);
     }
 
-    // set the new fish information if it exists in the request
+    // set the new wishlist information if it exists in the request
     if (req.body.name) wishlist.name = req.body.name;
     if (req.body.title) wishlist.title = req.body.title;
 
-    // save the fish
+    // save the wishlist
     wishlist.save(function(err, updatedList) {
       if (err) {
         res.send(err);
       }
       // log a message
       console.log("Oh, that's the list!");
-      // return the fish
+      // return the wishlist
       res.json(updatedList);
     });
   });
