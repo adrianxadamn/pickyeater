@@ -3,10 +3,12 @@ var _ = require('lodash');
 var util = require('util');
 var Wishlist = require('../models/wishlist');
 var User = require('../models/user')
+var currentUser;
 
 function index(req, res, next) {
   User.findById({_id: req.session.passport.user}, function(err, user) {
     var id = user.id;
+    currentUser = user;
     Wishlist.find({ creator: id}, function(err, wishlists) {
       res.json(wishlists);
     })
