@@ -19,7 +19,7 @@ function show(req, res, next) {
   var id = req.params.id;
   Wishlist.findById(id, function(err, wishlist){
     if (err) console.log(err);
-      else res.render("wishlists/show", {wishlist: wishlist});
+      else res.render("wishlists/show", {wishlist: wishlist, user: req.user});
   });
 };
 
