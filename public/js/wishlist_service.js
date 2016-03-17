@@ -47,8 +47,9 @@ $( document ).ready(function() {
     chosenRestaurant.yelp_id = $(evt.target).closest('.card').attr('id');
     chosenRestaurant.picture_url = $(evt.target).closest('.card').children().children().attr('src');
     chosenRestaurant.name = $(evt.target).parent().children().children().attr("class");
+    chosenRestaurant.address = $(evt.target).prev().attr('class')
 
-
+    console.log("the url: ", chosenRestaurant.url);
     console.log(chosenRestaurant);
     //gather data for restaurants from DOM above evt.target and put in object global variable
     //look at .parent or .closest method of jQuery / consider adding class names to the relevant elements
