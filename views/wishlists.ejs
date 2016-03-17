@@ -12,12 +12,42 @@
   <%- include('partials/navbar') %>
 
   <h1>Wishlists</h1>
-  <ul class="collection with-header", id="wishlist-list"></ul>
+  <ul class="collection with-header", id="wishlist-list">
+
+  <template id="wishlistTemplate1">
+  <li data-id='{{_id}}'>
+  <p> title:
+  <span class="noedit title">{{title}}</span>
+  <input class="edit title"/>
+  </p>
+  <button data-id="{{_id}}" class="remove">X</button>
+  <button class="editList noedit">Edit</button>
+  <button class="saveEdit edit">Save</button>
+  <button class="cancelList edit">Cancel</button>
+  </li>
+  </template>
+
+ <template id="wishlistTemplate2">
+  <li data-id='{{_id}}'>
+  restaurant:
+  <span class="noedit name">{{name}}</span>
+  <input class="edit name"/>
+  </li>
+  </template>
+
+  <template id= "modalWishlistTemplate">
+  <li>
+  <p><input name="title" type="radio" id="{{_id}}"/><label for="{{_id}}">{{title}}</label></p>
+  </li>
+  </template>
+
+  </ul>
 
 
   <h4>Add Wishlist</h4>
   <p>title: <input type="text" id="title"></p>
   <button id="add-wishlist">Add</button>
   <%- include('partials/scripts') %>
+  <script src="/js/wishlist_service.js"></script>
 </body>
 </html>
