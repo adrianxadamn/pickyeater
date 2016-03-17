@@ -123,7 +123,7 @@ function addRestaurantToWishlist(evt) {
     data: chosenRestaurant,
     success: function(wishlist) {
       wishlist.restaurants.push(chosenRestaurant);
-      Materialize.toast(`Added To ${wishlist.title}`, 3000);
+      Materialize.toast(`Added To ${wishlist.title}`);
       console.log(wishlist)
       // wishlist.save(function(err, wishlist) {
       //   if (err) console.log(err);

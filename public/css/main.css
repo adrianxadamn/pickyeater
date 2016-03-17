@@ -9,18 +9,20 @@ body {
   font-size: 14px;
   padding: 50px;
   padding-top: 0px;
+  background-image: url("http://p1.pichost.me/i/45/1686193.jpg");
 }
 
 a { color: #00B7FF; }
 
 .logo {
   text-align: center;
-  background-color: #9BD3DE;
+  background-color: aliceblue;
+  opacity: 0.6;
 }
 
 /*home*/
 #image {
-  border: 2px solid;
+  /*border: 2px solid;*/
   max-height: 500px;
   max-width: 400px;
 }
@@ -28,7 +30,6 @@ a { color: #00B7FF; }
 #img-container {
   border: 2px solid;
   text-align: center;
-  background-color: #9BD3DE;
 }
 
 #teampics {
@@ -53,13 +54,9 @@ a { color: #00B7FF; }
 /*search_results.ejs page*/
 
 #list-container {
-  border: 2px solid;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  max-width: 1000px;
-  max-height: 700px;
-  overflow: scroll;
 }
 
 .list {
@@ -72,14 +69,17 @@ a { color: #00B7FF; }
 }
 
 .card {
-  margin: 0 auto;
   width: 300px;
   height: 250px;
-  margin-top: 20px;
+  margin: 0 auto;
 }
 
 #card-image {
-  background-color: brown;
+  background-color: #00796b;
+}
+
+.toast {
+  left: 90px;
 }
 
 /*wishlists.ejs page*/
@@ -110,13 +110,39 @@ ul li.edit .noedit {
 }
 
 .restaurants-container {
-  border: 2px solid;
-  /*position: relative;*/
   display: inline-block;
   min-width: 330px;
   min-height: 290px;
+  background-color: #9BD3DE;
+  margin-top: 15px;
 }
 
-.buttons {
-
+.card-info {
+  margin-top: 20px;
 }
+
+
+/*show_ejs*/
+
+.card-medium {
+  min-height: 450px;
+  width: 440px;
+  border: 2px solid white;
+}
+
+.restaurant-name {
+  margin-top: 15px;
+}
+
+.grab-me {
+  display: flex;
+  flex-wrap: wrap;
+}
+.show-card {
+  padding: 20px;
+}
+
+/*restaurants.ejs*/
+
+
+
