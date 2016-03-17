@@ -13,9 +13,9 @@ $wishlists = $('#wishlist-list');
 createWishlistDialog();
 
 function createWishlistDialog() {
- var wishlistTemplate1 = $('#wishlistTemplate1').html();
-        var wishlistTemplate2 = $('#wishlistTemplate2').html();
-    var modalWishlistTemplate = $('#modalWishlistTemplate').html();
+  var wishlistTemplate1 = $('#wishlistTemplate1').html();
+  var wishlistTemplate2 = $('#wishlistTemplate2').html();
+  var modalWishlistTemplate = $('#modalWishlistTemplate').html();
   $.ajax({
     method: 'GET',
     url: 'http://localhost:3000/api/wishlists',
@@ -55,7 +55,7 @@ function createWishlistDialog() {
       url: 'http://localhost:3000/api/wishlists',
       data: wishlist,
       success: function(newWishlist) {
-        $wishlists.append(`<li> ${newWishlist.title} </li> <li> ${newWishlist.creator} </li>` );
+        $wishlists.append(`<li> ${newWishlist.title} </li>` );
       },
       error: function(err) {
         console.log(err);
