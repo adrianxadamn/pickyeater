@@ -18,7 +18,7 @@ function createWishlistDialog() {
   var modalWishlistTemplate = $('#modalWishlistTemplate').html();
   $.ajax({
     method: 'GET',
-    url: 'http://localhost:3000/api/wishlists',
+    url: '/api/wishlists',
     success: function(wishlists) {
 
       wishlists.forEach(function(wishlist, i) {
@@ -52,7 +52,7 @@ function createWishlistDialog() {
 
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:3000/api/wishlists',
+      url: '/api/wishlists',
       data: wishlist,
       success: function(newWishlist) {
         $wishlists.append(Mustache.render(wishlistTemplate1, newWishlist));
@@ -71,7 +71,7 @@ function createWishlistDialog() {
    var $li = $(this).closest('li');
    $.ajax({
       method: 'DELETE',
-      url: 'http://localhost:3000/wishlists/' + $(this).attr('data-id'),
+      url: '/wishlists/' + $(this).attr('data-id'),
       success: function (wishlist){
         $li.remove();
       }
@@ -84,7 +84,7 @@ console.log("wl_id", $('h1').attr('id') )
 console.log("rs_id", $(this).attr('data-id') )
 $.ajax({
       method: 'DELETE',
-      url: 'http://localhost:3000/api/wishlists/' + $('h1').attr('id') + '/restaurants/' + $(this).attr('data-id'),
+      url: '/api/wishlists/' + $('h1').attr('id') + '/restaurants/' + $(this).attr('data-id'),
       success: function (){
         $li.remove();
       }
@@ -118,7 +118,7 @@ $.ajax({
 
     $.ajax({
         method: 'PUT',
-        url: 'http://localhost:3000/wishlists/' + $li.attr('data-id'),
+        url: '/wishlists/' + $li.attr('data-id'),
         data: wishlist,
         success: function(newWishlist) {
           // addWishlist(newWishlist);

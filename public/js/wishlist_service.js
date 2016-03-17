@@ -31,7 +31,7 @@ $( document ).ready(function() {
 
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:3000/api/wishlists',
+      url: '/api/wishlists',
       data: wishlist,
       success: function(newWishlist) {
         $wishlists.append(`<li> ${newWishlist.title} </li> <li> ${newWishlist.creator} </li>` );
@@ -85,7 +85,7 @@ function createWishlistDialog() {
    '<p><input name="title" type="radio" value="{{_id}}" id="{{_id}}" /><label for="{{_id}}">{{title}}</label></p>'
   $.ajax({
     method: 'GET',
-    url: 'http://localhost:3000/api/wishlists',
+    url: '/api/wishlists',
     success: function(wishlists) {
 
       wishlists.forEach(function(wishlist, i) {
@@ -119,7 +119,7 @@ function addRestaurantToWishlist(evt) {
 
   $.ajax({
     method: 'PUT',
-    url: 'http://localhost:3000/api/wishlists/' + chosenWishlist,
+    url: '/api/wishlists/' + chosenWishlist,
     data: chosenRestaurant,
     success: function(wishlist) {
       wishlist.restaurants.push(chosenRestaurant);
