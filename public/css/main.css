@@ -98,3 +98,7 @@ ul li.edit .edit {
 ul li.edit .noedit {
   display: none;
 }
+
+.email, .copyright {
+  color: #EEEEEF;
+}
