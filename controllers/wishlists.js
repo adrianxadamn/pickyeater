@@ -40,8 +40,30 @@ function post(req, res, next) {
   })
 };
 
-function update(req, res, next) {
+var listUpdate= function (req, res, next) {
+var id = req.params.id;
 
+  Wishlist.findById(id, function(err, wishlist) {
+
+    if (err) {
+      res.send(err);
+    }
+
+    // set the new fish information if it exists in the request
+    if (req.body.name) wishlist.name = req.body.name;
+    if (req.body.title) wishlist.title = req.body.title;
+
+    // save the fish
+    wishlist.save(function(err, updatedList) {
+      if (err) {
+        res.send(err);
+      }
+      // log a message
+      console.log("Oh, that's the list!");
+      // return the fish
+      res.json(updatedList);
+    });
+  });
 }
 
 function addRestaurant(req, res, next) {
@@ -91,5 +113,6 @@ module.exports = {
   post: post,
   show: show,
   destroy: destroy,
-  addRestaurant: addRestaurant
+  addRestaurant: addRestaurant,
+  listUpdate: listUpdate
 }
