@@ -8,24 +8,24 @@
 <body>
 <div id="list-container">
   <% results.forEach(function(e) { %>
-      <div class="card" id="<%= e._id %>">
+    <div class="card" id="<%= e.yelp_id %>">
       <div id="card-image" class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="<%= e.picture_url %>">
+        <img class="activator pic" src="<%= e.picture_url %>">
         <!-- <button id="save-button">Save To My Wishlist</button> -->
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"><%= e.name %><i class="material-icons right">description</i></span>
-        <p><a href="<%= e.url %>">Learn More on Yelp</a></p>
+        <p><a class="url" href="<%= e.url %>">Learn More on Yelp</a></p>
       </div>
       <div class="card-reveal" id="card-reveal">
-        <span class="card-title grey-text text-darken-4"><%= e.name %><i class="material-icons right">close</i></span>
+        <span class="card-title grey-text text-darken-4"><p class="<%= e.name %>"><%= e.name %></p><i class="material-icons right">close</i></span>
         <p>Cuisine: <%= e.cuisine[0] %></p>
         <p><image src="<%= e.rating_img_url%>" /></p>
         <p><%= e.address %></p>
-        <button class="waves-effect waves-light btn save-wishlist-btn">Save to Wishlist</button>
+        <button data-target="restaurant-info" class="waves-effect waves-light btn modal-trigger save-wishlist-btn">Save to Wishlist</button>
       </div>
     </div>
-    <div class="modal" id="modal1">
+    <div class="modal" id="restaurant-info">
       <div class="modal-content">
         <h4>Wishlists</h4>
           <form action="PUT" id="modal-lists"/></form>
