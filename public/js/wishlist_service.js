@@ -57,10 +57,10 @@ $( document ).ready(function() {
   }
 
 // When you click on "Save Wishlist", modal appears
+    $('.save-wishlist-btn').leanModal();
 
 // When you click on "Save Wishlist", want to make sure that we are grabbing restaurant id"
   $('.save-wishlist-btn').on('click', function(evt){
-    $('.save-wishlist-btn').leanModal();
     openWishlistDialog(evt);
   });
 
