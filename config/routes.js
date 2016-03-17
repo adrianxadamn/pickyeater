@@ -22,6 +22,7 @@ router.get('/restaurants', function(req, res, next) {
 router.get('/wishlists', function(req, res, next) {
   res.render('wishlists', {user: req.user});
 })
+
 router.get('/wishlists/:id', wishlistController.show);
 router.put('/wishlists/:id', wishlistController.listUpdate);
 router.delete('/wishlists/:id', wishlistController.destroy);
@@ -30,6 +31,7 @@ router.delete('/wishlists/:id', wishlistController.destroy);
 //////////////////////////////////////////////////
 router.get('/api/wishlists', wishlistController.index);
 router.get('/api/wishlists/:id', wishlistController.show);
+router.put('/api/wishlists/:id', wishlistController.addRestaurant)
 router.put('/api/wishlists/:id/restaurants', wishlistController.addRestaurant);
 router.post('/api/wishlists', wishlistController.post);
 
