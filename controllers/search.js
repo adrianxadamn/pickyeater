@@ -1,8 +1,8 @@
 var request = require("request");
-var env = require("../config/environment");
-var _ = require('lodash');
-var util = require('util');
-var Yelp = require('yelp');
+var env     = require("../config/environment");
+var _       = require('lodash');
+var util    = require('util');
+var Yelp    = require('yelp');
 
 var yelp = new Yelp({
   consumer_key: process.env.consumer_key,

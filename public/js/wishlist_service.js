@@ -86,10 +86,6 @@ function addRestaurantToWishlist(evt) {
       wishlist.restaurants.push(chosenRestaurant);
       Materialize.toast(`Added To ${wishlist.title}`);
       console.log(wishlist)
-      // wishlist.save(function(err, wishlist) {
-      //   if (err) console.log(err);
-      //   console.log(wishlist);
-      // });
     }
   });
 };
