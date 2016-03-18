@@ -30,7 +30,7 @@ function search(req, res, next) {
       var temp = {};
       temp.yelp_id          =  el.id
       temp.name             =  el.name
-      temp.address          =  el.location.display_address
+      temp.address          =  el.location.display_address.join(" ");
       temp.url              =  el.url
       temp.picture_url      =  el.image_url
       temp.rating           =  el.rating
