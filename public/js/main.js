@@ -2,10 +2,8 @@ console.log('JS loaded!');
 
 $( document ).ready(function() {
 
-
-//carousel:
-$('.slider').slider({full_width: true});
-
+  //INITIALIZING CAROUSEL ON HOME PAGE
+  $('.slider').slider({full_width: true});
 
 });
 

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <%- include('../partials/head') %>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-</head>
-<body>
-<%- include('../partials/navbar') %>
-<h1 id='<%= wishlist._id%>'><%= `${wishlist.title}`%></h1>
-<ul class="grab-me">
-  <% for (var i = 0; i < wishlist.restaurants.length; i++) { %>
-  <li>
+  <head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  </head>
+  <body>
+    <%- include('../partials/navbar') %>
+    <h1 id='<%= wishlist._id%>'><%= `${wishlist.title}`%></h1>
+    <button data-target="restaurant-modal" class="random-wishlist-btn btn-large #03a9f4 light-blue random-button center-align" value="<%= wishlist._id%>">RANDOMIZER</button>
+    <ul class="grab-me">
+      <% for (var i = 0; i < wishlist.restaurants.length; i++) { %>
+      <li>
         <div class="card-medium #00796b teal darken-2">
           <div class="card-content show-card white-text">
             <h2 class="restaurant-name"><%= `${wishlist.restaurants[i].name}` %></h2>
@@ -23,26 +24,18 @@
             <button class="btn waves-effect #e53935 red darken-1 remove-rs" data-id=<%=`${wishlist.restaurants[i].id}`%> >Remove Restaurant From List</button>
           </div>
         </div>
-  </li>
-  <% }; %>
-</ul>
-
-<!-- <div id="random-restaurant"></div> -->
-
-
-<button data-target="restaurant-modal" class="random-wishlist-btn btn #03a9f4 light-blue random-button" value="<%= wishlist._id%>">RANDOMIZER</button>
-<div id="restaurant-modal" class="modal">
-     <div class="modal-content">
-     </div>
-     <div class="modal-footer">
+      </li>
+      <% }; %>
+    </ul>
+    <div id="restaurant-modal" class="modal">
+      <div class="modal-content"></div>
+      <div class="modal-footer">
        <button id="re-randomize" class="waves-effect waves-green btn-flat">REDO</a>
-     </div>
-   </div>
-  <%- include('../partials/scripts') %>
-<script src="../js/wishlist_index.js"></script>
-<script src="../js/show_randomizer.js"></script>
-
-</body>
-
+      </div>
+    </div>
+    <%- include('../partials/scripts') %>
+    <script src="../js/wishlist_index.js"></script>
+    <script src="../js/show_randomizer.js"></script>
+  </body>
 </html>
 

@@ -1,8 +1,7 @@
 
 $(document).ready(function(){
-console.log("hi")
 
-//Event listener for random
+///////////EVENT LISTENER TO RANDOMIZE//////////////
   $(".random-wishlist-btn").on("click", function(evt) {
     id = evt.target.value;
     console.log(id);
@@ -11,14 +10,13 @@ console.log("hi")
   });
 });
 
-//Re-renders for another restaurant choice
+///////////RANDOMIZES AGAIN IF YOU WANT TO CHOOSE ANOTHER RESTAURANT///////////
 $('#re-randomize').on('click', function() {
   reRandom();
 })
 
-//Template for random restaurant
+///////////TEMPLATE FOR RANDOM RESTAURANT///////////
 var renderRandom = _.template(
-
   `
   <h4> <%= name %> </h4>
   <span> <%= address %> </span>
@@ -27,15 +25,15 @@ var renderRandom = _.template(
   <br>
   <span> <img src="<%= picture_url %>"></span>
   <br>
-  <span> <img src="<%= rating_img_url %>"></span>`
+  <span> <img src="<%= rating_img_url %>"></span>
+  `
 );
 
- $('.random-button').leanModal();
-//Function for random restaurant from the wishlist
-function getRandom(id) {
-  console.log("whts up");
-  console.log(id)
+///////////ACTIVATE MODAL WHEN CLICK ON RANDOMIZE///////////
+$('.random-button').leanModal();
 
+///////////FUNCTION TO GET RANDOM RESTAURANT FROM WISHLIST///////////
+function getRandom(id) {
   $.ajax({
     method: 'GET',
     url: "http://localhost:3000/api/wishlists/" + id,
@@ -53,6 +51,7 @@ function getRandom(id) {
   });
 };
 
+///////////FUNCTION TO RE-RANDOMIZE///////////
 function reRandom() {
   console.log("clearing previous restaurant")
   $(".modal-content").html(""); //this clears the current pick

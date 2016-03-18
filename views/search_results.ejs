@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <%- include('partials/head') %>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-<%- include('partials/navbar') %>
-<div id="list-container">
-  <% results.forEach(function(e) { %>
-    <div class="card" id="<%= e.yelp_id %>">
-      <div id="card-image" class="card-image waves-effect waves-block waves-light">
-        <img class="activator pic" src="<%= e.picture_url %>">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= e.name %><i class="material-icons right">description</i></span>
-        <p><a href="<%= e.url %>" target="_blank">Learn More on Yelp</a></p>
-      </div>
-      <div class="card-reveal" id="card-reveal">
-        <span id="<%= e.url %>" class="card-title grey-text text-darken-4">
-          <p class="<%= e.name %>"><%= e.name %></p>
-          <i class="material-icons right">close</i>
-        </span>
+  <head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+  <%- include('partials/navbar') %>
+  <div id="list-container">
+    <% results.forEach(function(e) { %>
+      <div class="card" id="<%= e.yelp_id %>">
+        <div id="card-image" class="card-image waves-effect waves-block waves-light">
+          <img class="activator pic" src="<%= e.picture_url %>">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><%= e.name %><i class="material-icons right">description</i></span>
+          <p><a href="<%= e.url %>" target="_blank">Learn More on Yelp</a></p>
+        </div>
+        <div class="card-reveal" id="card-reveal">
+          <span id="<%= e.url %>" class="card-title grey-text text-darken-4">
+            <p class="<%= e.name %>"><%= e.name %></p>
+            <i class="material-icons right">close</i>
+          </span>
           <p class="<%= e.cuisine[0] %>">Cuisine: <%= e.cuisine[0] %></p>
           <p class= "<%= e.rating_img_url %>">
-            <image src="<%= e.rating_img_url%>" />
+            <image src="<%= e.rating_img_url%>"/>
           </p>
           <p class="<%= e.address %>"><%= e.address %></p>
           <button data-target="restaurant-info" class="waves-effect waves-light btn modal-trigger save-wishlist-btn">Save to Wishlist</button>
+        </div>
       </div>
-    </div>
-    <div class="modal" id="restaurant-info">
-      <div class="modal-content">
-        <h4>Wishlists</h4>
+      <div class="modal" id="restaurant-info">
+        <div class="modal-content">
+          <h4>Wishlists</h4>
           <form action="PUT" id="modal-lists"/></form>
+        </div>
+        <div class="modal-footer">
+          <button id="addWishlist" class="btn-flat modal-action modal-close waves-effect waves-default">Add</button>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button id="addWishlist" class="btn-flat modal-action modal-close waves-effect waves-default">Add</button>
-      </div>
-    </div>
-  <% }) %>
-</div>
+    <% }) %>
+  </div>
 
-<%- include('partials/scripts') %>
-<script src="/js/wishlist_service.js"></script>
+  <%- include('partials/scripts') %>
+  <script src="/js/wishlist_service.js"></script>
 
-</body>
+  </body>
 
 </html>

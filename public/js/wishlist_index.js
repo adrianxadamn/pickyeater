@@ -5,17 +5,18 @@ var $addWishlist;
 
 $( document ).ready(function() {
 
-$wishlists = $('#wishlist-list');
-  $title = $('#title');
-  $modalWishlists = $('#modal-lists');
-  $addWishlist = $('#addWishlist');
+var $wishlists      = $('#wishlist-list'),
+    $title          = $('#title'),
+    $modalWishlists = $('#modal-lists'),
+    $addWishlist    = $('#addWishlist');
 
-createWishlistDialog();
+showWishlists();
 
-function createWishlistDialog() {
-  var wishlistTemplate1 = $('#wishlistTemplate1').html();
-  var wishlistTemplate2 = $('#wishlistTemplate2').html();
-  var modalWishlistTemplate = $('#modalWishlistTemplate').html();
+function showWishlists() {
+  var wishlistTemplate1     = $('#wishlistTemplate1').html(),
+      wishlistTemplate2     = $('#wishlistTemplate2').html(),
+      modalWishlistTemplate = $('#modalWishlistTemplate').html();
+
   $.ajax({
     method: 'GET',
     url: 'http://localhost:3000/api/wishlists',
@@ -74,6 +75,7 @@ function createWishlistDialog() {
       url: 'http://localhost:3000/wishlists/' + $(this).attr('data-id'),
       success: function (wishlist){
         $li.remove();
+        window.location.reload()
       }
     });
    });
@@ -90,8 +92,6 @@ $.ajax({
       }
   });
 })
-//Remove restaurant from wishlist:
-
 
   //Edit wishlist:
   //////////////////////

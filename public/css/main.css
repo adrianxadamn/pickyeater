@@ -142,7 +142,22 @@ ul li.edit .noedit {
   padding: 20px;
 }
 
+/*navbar*/
+
+.logout {
+  float: right;
+  position: relative;
+  left: 850px;
+}
+
 /*restaurants.ejs*/
 
+.search-options {
+  color: white;
+}
+
+.search-form {
+  margin-top: 20px;
+}
 
 
