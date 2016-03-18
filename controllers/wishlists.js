@@ -109,7 +109,6 @@ function destroy(req, res, next) {
   })
 };
 
-<<<<<<< HEAD
 // randomizer function
   // this is hoisted:
 function shuffleList(restaurants) {
@@ -125,7 +124,6 @@ function randomRest(req, res, next){
   })
 };
 
-=======
 function removeRestaurant(req, res, next) {
   var id = req.params.wl_id;
   Wishlist.findById(id, function(err, wishlist) {

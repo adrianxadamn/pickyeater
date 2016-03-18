@@ -29,18 +29,24 @@ a { color: #00B7FF; }
   border: 2px solid;
   text-align: center;
   background-color: #9BD3DE;
+
 }
 
-#teampics {
+#teampics .img{
+  height: 100%;
+  width: auto;
+}
+#teampics .img{
   height: 200px;
   width: 200px;
   border: 2px solid;
   border-radius: 50%;
 }
 
-#onepic {
+#onepic  {
   border: 2px solid;
   height: 400px;
+  background-color: #00796B;
 }
 
 #team-container {
@@ -48,6 +54,7 @@ a { color: #00B7FF; }
   justify-content: space-around;
   flex-wrap: wrap;
   border: 2px solid;
+  background-color: #9BD3DE;
 }
 
 /*search_results.ejs page*/
