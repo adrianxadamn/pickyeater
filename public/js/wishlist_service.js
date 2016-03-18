@@ -43,6 +43,7 @@ $( document ).ready(function() {
   });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   function openWishlistDialog(evt) {
     console.log("event:", evt);
     chosenRestaurant.yelp_id = $(evt.target).closest('.card').attr('id');
@@ -53,6 +54,8 @@ $( document ).ready(function() {
     chosenRestaurant.cuisine = $(evt.target).prev().prev().prev().attr('class');
     chosenRestaurant.url = $(evt.target).prev().prev().prev().prev().attr('id');
 =======
+=======
+>>>>>>> Stashed changes
 //Gets all data from restaurant:
 function openWishlistDialog(evt) {
   console.log("event:", evt);
@@ -71,6 +74,7 @@ function openWishlistDialog(evt) {
     //look at .parent or .closest method of jQuery / consider adding class names to the relevant elements
     // that we are trying to extract data from
 
+<<<<<<< Updated upstream
     //show dialog
   }
 
@@ -118,9 +122,13 @@ function createWishlistDialog() {
 };
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
 //Add Restaurant to Wishlist:
+=======
+//Adds Restaurants to Wishlist:
+>>>>>>> Stashed changes
 =======
 //Adds Restaurants to Wishlist:
 >>>>>>> Stashed changes
