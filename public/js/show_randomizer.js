@@ -1,26 +1,39 @@
 
 $(document).ready(function(){
-console.log("hi")
-//Event listener for random
+
+///////////EVENT LISTENER TO RANDOMIZE//////////////
   $(".random-wishlist-btn").on("click", function(evt) {
-    reRandom();
     id = evt.target.value;
     console.log(id);
     console.log("random");
     getRandom(id);
   });
 });
-//Template for random restaurant
+
+///////////RANDOMIZES AGAIN IF YOU WANT TO CHOOSE ANOTHER RESTAURANT///////////
+$('#re-randomize').on('click', function() {
+  reRandom();
+})
+
+///////////TEMPLATE FOR RANDOM RESTAURANT///////////
 var renderRandom = _.template(
-  `<li> ${name} <br> <%= address %> <br> <%= url %> <br>
-  <%= picture_url %> <br> <%= rating_img_url %> </li>`
+  `
+  <h4> <%= name %> </h4>
+  <span> <%= address %> </span>
+  <br>
+  <span> <a href="<%= url %>">yelp info</a> </span>
+  <br>
+  <span> <img src="<%= picture_url %>"></span>
+  <br>
+  <span> <img src="<%= rating_img_url %>"></span>
+  `
 );
 
-//Function for random restaurant from the wishlist
-function getRandom(id) {
-  console.log("whts up");
-  console.log(id)
+///////////ACTIVATE MODAL WHEN CLICK ON RANDOMIZE///////////
+$('.random-button').leanModal();
 
+///////////FUNCTION TO GET RANDOM RESTAURANT FROM WISHLIST///////////
+function getRandom(id) {
   $.ajax({
     method: 'GET',
     url: "/api/wishlists/" + id,
@@ -30,7 +43,7 @@ function getRandom(id) {
       console.log(randomRestaurant);
       console.log(wishlist.restaurants[randomRestaurant]);
       var chosenRestaurant = wishlist.restaurants[randomRestaurant];
-      $("#random-restaurant").append(renderRandom(chosenRestaurant));
+      $(".modal-content").append(renderRandom(chosenRestaurant));
     },
     error: function(err) {
       console.log(err);
@@ -38,8 +51,9 @@ function getRandom(id) {
   });
 };
 
-//Re-renders for another restaurant choice
+///////////FUNCTION TO RE-RANDOMIZE///////////
 function reRandom() {
   console.log("clearing previous restaurant")
-  $("#random-restaurant").html(""); //this clears the current pick
+  $(".modal-content").html(""); //this clears the current pick
+  getRandom(id);
 }
