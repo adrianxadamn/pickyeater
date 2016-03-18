@@ -103,9 +103,10 @@ ul li.edit .noedit {
   display: none;
 }
 
-.email, .copyright {
+.footer {
   color: #EEEEEF;
 }
+
 .title, .wishlist-title{
   font-family: "Anton", "sans-serif";
   font-size: 50px;
@@ -151,5 +152,7 @@ ul li.edit .noedit {
 
 /*restaurants.ejs*/
 
-
+.page-footer {
+  font-size: 15px;
+}
 
