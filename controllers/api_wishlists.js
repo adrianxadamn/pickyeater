@@ -1,8 +1,8 @@
-var request = require("request");
-var _ = require('lodash');
-var util = require('util');
-var Wishlist = require('../models/wishlist');
-var User = require('../models/user')
+var request   = require("request");
+var _         = require('lodash');
+var util      = require('util');
+var Wishlist  = require('../models/wishlist');
+var User      = require('../models/user')
 
 //Finds current user's id then finds wishlists
 //that matches 'creator:' with current user's id

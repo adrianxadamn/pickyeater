@@ -1,8 +1,8 @@
-var request = require("request");
-var _ = require('lodash');
-var util = require('util');
-var Wishlist = require('../models/wishlist');
-var User = require('../models/user')
+var request   = require("request");
+var _         = require('lodash');
+var util      = require('util');
+var Wishlist  = require('../models/wishlist');
+var User      = require('../models/user')
 
 //requests id then finds the wishlist that matches
 //with the same unique id retrieved and renders the data

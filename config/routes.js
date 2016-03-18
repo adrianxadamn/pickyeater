@@ -1,5 +1,5 @@
-var express = require('express'),
-    router  = new express.Router(),
+var express  = require('express'),
+    router   = new express.Router(),
     passport = require('passport')
 
 // Require controllers.
