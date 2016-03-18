@@ -1,5 +1,4 @@
 var mongoose = require('./database');
-
 var User = require('../models/user');
 var Wishlist = require('../models/wishlist');
 
