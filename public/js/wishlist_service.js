@@ -48,7 +48,9 @@ $( document ).ready(function() {
     chosenRestaurant.picture_url = $(evt.target).closest('.card').children().children().attr('src');
     chosenRestaurant.name = $(evt.target).parent().children().children().attr("class");
 
+    chosenRestaurant.cuisine = $(evt.target).prev().prev().prev().attr("class");
 
+    console.log(chosenRestaurant.cuisine);
     console.log(chosenRestaurant);
     //gather data for restaurants from DOM above evt.target and put in object global variable
     //look at .parent or .closest method of jQuery / consider adding class names to the relevant elements

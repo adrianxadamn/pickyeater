@@ -99,6 +99,11 @@ ul li.edit .noedit {
   display: none;
 }
 
-.email, .copyright {
+.footer {
   color: #EEEEEF;
 }
+
+.page-footer {
+  font-size: 15px;
+}
+
