@@ -18,7 +18,7 @@
               <li><img src="<%= `${wishlist.restaurants[i].picture_url}` %>"> </li>
               <li><span class="card-title"><%=`Cuisine: ${wishlist.restaurants[i].cuisine}`%></span> </li>
               <li><img src="<%= `${wishlist.restaurants[i].rating_img_url}` %>"> </li>
-              <li><%=`${wishlist.restaurants[i].address}`%></li>
+              <li class="address"><%=`${wishlist.restaurants[i].address}`%></li>
               <a href="<%=`${wishlist.restaurants[i].url}`%>">Yelp Info</a>
             </ul>
             <button class="btn waves-effect #e53935 red darken-1 remove-rs" data-id=<%=`${wishlist.restaurants[i].id}`%> >Remove Restaurant From List</button>
@@ -28,9 +28,9 @@
       <% }; %>
     </ul>
     <div id="restaurant-modal" class="modal">
-      <div class="modal-content"></div>
-      <div class="modal-footer">
-       <button id="re-randomize" class="waves-effect waves-green btn-flat">REDO</a>
+      <div class="modal-content #00796b teal darken-2"></div>
+      <div class="modal-footer #00796b teal darken-2">
+       <button id="re-randomize" class="waves-effect waves-green btn">REDO</a>
       </div>
     </div>
     <%- include('../partials/scripts') %>

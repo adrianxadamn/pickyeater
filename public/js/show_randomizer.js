@@ -18,8 +18,9 @@ $('#re-randomize').on('click', function() {
 ///////////TEMPLATE FOR RANDOM RESTAURANT///////////
 var renderRandom = _.template(
   `
-  <h4> <%= name %> </h4>
-  <span> <%= address %> </span>
+  <h3 class="enjoy"> Enjoy Eating At </h3>
+  <h4 class="restaurant-name"> <%= name %> </h4>
+  <span class="address"> <%= address %> </span>
   <br>
   <span> <a href="<%= url %>">yelp info</a> </span>
   <br>

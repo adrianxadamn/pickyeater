@@ -30,7 +30,6 @@ a { color: #00B7FF; }
 #img-container {
   border: 2px solid;
   text-align: center;
-  background-color: #9BD3DE;
 }
 
 #teampics .img{
@@ -45,17 +44,38 @@ a { color: #00B7FF; }
 }
 
 #onepic  {
-  border: 2px solid;
-  height: 400px;
-  background-color: #00796B;
+  padding: 30px;
 }
 
 #team-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  border: 2px solid;
-  background-color: #9BD3DE;
+  margin-top: 30px;
+}
+
+.names {
+  font-size: 20px;
+  text-align: center;
+}
+
+.roles, .quote, .meet {
+  text-align: center;
+}
+
+.meet {
+  color: white;
+  position: relative;
+  top: 150px;
+  font-size: 100px;
+}
+
+.second-image {
+  background-image: url('https://static.pexels.com/photos/5938/food-salad-healthy-lunch.jpg');
+  background-size: cover;
+  height: 400px;
+  margin-top: 20px;
+  border: 2px solid white;
 }
 
 /*search_results.ejs page*/
@@ -140,6 +160,11 @@ ul li.edit .noedit {
 
 .restaurant-name {
   margin-top: 15px;
+  color: white;
+}
+
+.address {
+  color: white;
 }
 
 .grab-me {
@@ -150,6 +175,10 @@ ul li.edit .noedit {
   padding: 20px;
 }
 
+.enjoy {
+  text-align: center;
+  color: white;
+}
 /*navbar*/
 
 .logout {
@@ -171,6 +200,7 @@ ul li.edit .noedit {
 .search-form {
   margin-top: 20px;
 }
+
 
 
 
