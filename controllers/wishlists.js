@@ -126,7 +126,7 @@ function shuffleList(restaurants) {
 function randomRest(req, res, next){
   var id = req.params.id;
   Wishlist.find({_id: id}, function(err, wishlist) {
-    var taurs = wishlist[0].restaurants;
+    var taurs = wishlist.restaurants;
     var taur = shuffleList(taurs);
     res.json(taur);
   })
