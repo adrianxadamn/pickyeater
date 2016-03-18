@@ -52,7 +52,7 @@ $( document ).ready(function() {
     chosenRestaurant.cuisine = $(evt.target).prev().prev().prev().attr('class');
     chosenRestaurant.url = $(evt.target).prev().prev().prev().prev().attr('id');
 
-    console.log("the url: ", chosenRestaurant.url);
+
     console.log(chosenRestaurant);
     //gather data for restaurants from DOM above evt.target and put in object global variable
     //look at .parent or .closest method of jQuery / consider adding class names to the relevant elements
