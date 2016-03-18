@@ -7,18 +7,18 @@
 <body>
   <%- include('partials/navbar') %>
 
-<form method="POST" action="/search">
-      <label for="search">Location</label>
-      <input id="search" type="text" name="search[place]" placeholder="Los Angeles, CA"/>
-      <br>
-      <label for="search">Number of Results</label>
-      <input id="limit" type="text" name="search[limit]" placeholder="Number of Results Ex: 1"/>
-      <br>
-      <label for="search">Search Category</label>
-      <input id="category" type="text" name="search[category]" placeholder="Category. Ex: Burgers"/>
-      <br>
-      <input type="submit" value="Search" />
-    </form>
+  <form class="search-form" method="POST" action="/search">
+    <label class="search-options" for="search">Location</label>
+    <input id="search" type="text" name="search[place]" placeholder="Los Angeles, CA"/>
+    <br>
+    <label class="search-options" for="search">Number of Results</label>
+    <input id="limit" type="text" name="search[limit]" placeholder="Number of Results Ex: 1"/>
+    <br>
+    <label class="search-options" for="search">Search Category</label>
+    <input id="category" type="text" name="search[category]" placeholder="Category. Ex: Burgers"/>
+    <br>
+    <input type="submit" value="Search" class="waves-effect waves-light btn"/>
+  </form>
 
   <%- include('partials/scripts') %>
 </body>
