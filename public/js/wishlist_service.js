@@ -42,6 +42,7 @@ $( document ).ready(function() {
     });
   });
 
+<<<<<<< Updated upstream
   function openWishlistDialog(evt) {
     console.log("event:", evt);
     chosenRestaurant.yelp_id = $(evt.target).closest('.card').attr('id');
@@ -51,6 +52,18 @@ $( document ).ready(function() {
     chosenRestaurant.rating_img_url = $(evt.target).prev().prev().attr('class');
     chosenRestaurant.cuisine = $(evt.target).prev().prev().prev().attr('class');
     chosenRestaurant.url = $(evt.target).prev().prev().prev().prev().attr('id');
+=======
+//Gets all data from restaurant:
+function openWishlistDialog(evt) {
+  console.log("event:", evt);
+  chosenRestaurant.yelp_id = $(evt.target).closest('.card').attr('id');
+  chosenRestaurant.picture_url = $(evt.target).closest('.card').children().children().attr('src');
+  chosenRestaurant.name = $(evt.target).parent().children().children().attr("class");
+  chosenRestaurant.address = $(evt.target).prev().attr('class');
+  chosenRestaurant.rating_img_url = $(evt.target).prev().prev().attr('class');
+  chosenRestaurant.cuisine = $(evt.target).prev().prev().prev().attr('class');
+  chosenRestaurant.url = $(evt.target).prev().prev().prev().prev().attr('id');
+>>>>>>> Stashed changes
 
     console.log("the url: ", chosenRestaurant.url);
     console.log(chosenRestaurant);
@@ -74,14 +87,11 @@ $( document ).ready(function() {
 
 });
 
-//Get all wishlists:
-//////////////////////
-//////////////////////
-
+//displays wishlist and restaurants on client-side page
 function createWishlistDialog() {
   var wishlistTemplate1 = '<li><p>title: {{title}}</p>' + '<button data-id="{{_id}}" class="remove">X</button></li>'
-   var wishlistTemplate2 = '<li>restaurant: {{name}}</li>'
-   var modalWishlistTemplate =
+  var wishlistTemplate2 = '<li>restaurant: {{name}}</li>'
+  var modalWishlistTemplate =
    '<p><input name="title" type="radio" value="{{_id}}" id="{{_id}}" /><label for="{{_id}}">{{title}}</label></p>'
   $.ajax({
     method: 'GET',
@@ -107,9 +117,13 @@ function createWishlistDialog() {
   });
 };
 
+<<<<<<< Updated upstream
 
 
 //Add Restaurant to Wishlist:
+=======
+//Adds Restaurants to Wishlist:
+>>>>>>> Stashed changes
 function addRestaurantToWishlist(evt) {
   console.log("adding restaurants to wishlist");
   //perform ajax PUT to /api/wishlists/:id including data from the object global variable
