@@ -22,26 +22,11 @@ $( document ).ready(function() {
   $('.save-wishlist-btn').on('click', function(evt){
     openWishlistDialog(evt);
   });
-
-  $('#add-wishlist').on('click', function() {
-    var wishlist = {
-      title: $title.val()
-    };
-    $.ajax({
-      method: 'POST',
-      url: '/api/wishlists',
-      data: wishlist,
-      success: function(newWishlist) {
-        $wishlists.append(`<li> ${newWishlist.title} </li> <li> ${newWishlist.creator} </li>` );
-      },
-      error: function(err) {
-        console.log(err);
-      }
-    });
-  });
 });
 
-//Get all wishlists:
+//stores all restaurant data into global variable
+//when restaurant has been selected to save onto
+//wishlist
 function openWishlistDialog(evt) {
   console.log("event:", evt);
   chosenRestaurant.yelp_id = $(evt.target).closest('.card').attr('id');
@@ -55,9 +40,7 @@ function openWishlistDialog(evt) {
   console.log(chosenRestaurant);
 }
 
-//////////////////////
-//////////////////////
-
+//renders wishlist data to client-side
 function createWishlistDialog() {
   var wishlistTemplate1 = '<li><p>title: {{title}}</p>' + '<button data-id="{{_id}}" class="remove">X</button></li>'
    var wishlistTemplate2 = '<li>restaurant: {{name}}</li>'
