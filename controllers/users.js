@@ -1,3 +1,6 @@
+//ICEBOX FEATURE. WILL IMPLEMENT WHEN WDI
+//COURSE IS OVER
+
 var User = require("../models/user");
 
 var index = function(req, res, next){

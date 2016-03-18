@@ -80,18 +80,18 @@ function showWishlists() {
     });
    });
 
-$('.grab-me').on('click', '.remove-rs', function () {
-var $li = $(this).closest('li');
-console.log("wl_id", $('h1').attr('id') )
-console.log("rs_id", $(this).attr('data-id') )
-$.ajax({
-      method: 'DELETE',
-      url: '/api/wishlists/' + $('h1').attr('id') + '/restaurants/' + $(this).attr('data-id'),
-      success: function (){
-        $li.remove();
-      }
-  });
-})
+  $('.grab-me').on('click', '.remove-rs', function () {
+  var $li = $(this).closest('li');
+  console.log("wl_id", $('h1').attr('id') )
+  console.log("rs_id", $(this).attr('data-id') )
+  $.ajax({
+        method: 'DELETE',
+        url: '/api/wishlists/' + $('h1').attr('id') + '/restaurants/' + $(this).attr('data-id'),
+        success: function (){
+          $li.remove();
+        }
+    });
+  })
 
   //Edit wishlist:
   //////////////////////

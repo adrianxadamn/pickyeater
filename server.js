@@ -40,13 +40,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser('notsosecretnowareyou'));
-//CJS ADD
+
 app.use(session({
   secret: 'pickyeater ROCKS!',
   resave: false,
   saveUninitialized: true
 }));
-//CJS ADD
+
 app.use(passport.initialize());
 app.use(passport.session());
 
